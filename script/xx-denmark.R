@@ -374,7 +374,7 @@ res_w_rate <-
     offset = as.data.frame(den_w_pop) / 1000,
   )
 
-plot(res_m_rate)
+plot(res_w_rate)
 
 
 res_w_rate$fitted |> 
@@ -387,4 +387,33 @@ res_w_rate$fitted |>
                names_to = "year") |> 
   filter(age < 50) |> 
   ggplot(aes(x = age, y = n, group = year, colour = as.numeric(year))) +
+  geom_line()
+
+
+res_w_rate$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1980`:`2021`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50) |> 
+  ggplot(aes(x = as.numeric(year), y = age, fill = n)) +
+  geom_tile() +
+  coord_equal() +
+  scale_fill_viridis_c()
+
+
+res_w_rate$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1980`:`2021`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50) |> 
+  ggplot(aes(x = age, y = n, group = year, colour = as.numeric(year))) +
+  facet_wrap(~ year) +
   geom_line()
