@@ -5,6 +5,10 @@ library(ungroup)
 switz <- read_excel("data/je-e-19.03.02.02.02.01.02b.xlsx", 
                                          sheet = "Total", skip = 4)
 
+
+
+
+
 switz <- 
 switz |> 
   janitor::clean_names() |> 
@@ -130,3 +134,32 @@ res$fitted |>
   geom_tile() +
   coord_equal() +
   scale_fill_viridis_c()
+
+
+
+# populaion ---------------------------------------------------------------
+
+
+# https://www.bfs.admin.ch/bfs/en/home/statistics/catalogues-databases/data.assetdetail.23284918.html
+
+switz_pop <- 
+read_excel(here::here("data",
+                      "px-x-0102030000_101_20230505-144659.xlsx"),
+           skip = 2) |> 
+  janitor::clean_names()
+
+switz_pop <- 
+switz_pop |> 
+  fill(x1, .direction = "down") |> 
+  mutate(x1 = str_remove_all(x1, "Sex - "),
+         x2 = str_remove_all(x2, "([A-Za-z]+)"),
+         x2 = str_remove_all(x2, " ")) |> 
+  filter(x1 == "total") |> 
+  select(x1:x2007) |> 
+  pivot_longer(x1984:x2007,
+               names_to = "year",
+               values_to = "pop") |> 
+  rename(sex = x1,
+         age = x2) |> 
+  mutate(year = as.numeric(str_remove_all(year, "x")),
+         age = as.numeric(age))
