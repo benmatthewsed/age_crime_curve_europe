@@ -8,6 +8,9 @@ source(here::here("script",
 
 # https://www.ssb.no/en/statbank/table/10623
 
+# remove on the spot fines?
+# https://www.ssb.no/en/sosiale-forhold-og-kriminalitet/kriminalitet-og-rettsvesen/statistikk/straffereaksjoner
+
 nor <- 
 read_excel(
   here::here("data",
@@ -46,41 +49,41 @@ wid_dat <-
   select(-sex, -age)
 
 
-res <- 
-  pclm2D(
-    x = ages$age,
-    y = wid_dat,
-    control = list(lambda = c(NA, NA)),
-    nlast = 40
-  )
+# res <-
+#   pclm2D(
+#     x = ages$age,
+#     y = wid_dat,
+#     control = list(lambda = c(NA, NA)),
+#     nlast = 40
+#   )
 
 
-res$fitted |> 
-  as.data.frame() |> 
-  tibble::rownames_to_column() |> 
-  as_tibble() |> 
-  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
-  pivot_longer(cols = `2002`:`2021`,
-               values_to = "n",
-               names_to = "year") |> 
-  filter(age < 50) |> 
-  ggplot(aes(x = as.numeric(year), y = age, fill = n)) +
-  geom_tile() +
-  coord_equal() +
-  scale_fill_viridis_c()
-
-
-res$fitted |> 
-  as.data.frame() |> 
-  tibble::rownames_to_column() |> 
-  as_tibble() |> 
-  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
-  pivot_longer(cols = `2002`:`2021`,
-               values_to = "n",
-               names_to = "year") |> 
-  filter(age < 50) |> 
-  ggplot(aes(x = age, y = n, group = year, colour = as.numeric(year))) +
-  geom_line()
+# res$fitted |> 
+#   as.data.frame() |> 
+#   tibble::rownames_to_column() |> 
+#   as_tibble() |> 
+# #   mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+# #   pivot_longer(cols = `2002`:`2021`,
+# #                values_to = "n",
+# #                names_to = "year") |> 
+# #   filter(age < 50) |> 
+# #   ggplot(aes(x = as.numeric(year), y = age, fill = n)) +
+# #   geom_tile() +
+# #   coord_equal() +
+# #   scale_fill_viridis_c()
+# 
+# 
+# res$fitted |> 
+#   as.data.frame() |> 
+#   tibble::rownames_to_column() |> 
+#   as_tibble() |> 
+#   mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+#   pivot_longer(cols = `2002`:`2021`,
+#                values_to = "n",
+#                names_to = "year") |> 
+#   filter(age < 50) |> 
+#   ggplot(aes(x = age, y = n, group = year, colour = as.numeric(year))) +
+#   geom_line()
 
 
 nor
@@ -228,6 +231,8 @@ res$fitted |>
 
 nor
 
+last_age <- 120
+
 nor |> 
   mutate(age_first = as.numeric(str_extract(age, "[0-9]+")),
          age_last = str_extract(str_sub(age, 3, str_length(age)),
@@ -250,6 +255,30 @@ nor |>
   coord_equal() +
   facet_wrap(~ sex) +
   scale_fill_viridis_c()
+
+
+nor |> 
+  mutate(age_first = as.numeric(str_extract(age, "[0-9]+")),
+         age_last = str_extract(str_sub(age, 3, str_length(age)),
+                                "[0-9]+"),
+         age_last = case_when(
+           is.na(age_last) & as.numeric(age_first) != max(as.numeric(age_first)) ~ as.numeric(age_first),
+           is.na(age_last) & as.numeric(age_first) == max(as.numeric(age_first)) ~ 99,
+           TRUE ~ as.numeric(age_last)
+         ),
+         age_last = if_else(is.na(age_last), last_age, age_last),
+         age_range = map2(age_first, age_last, ~ seq(.x, .y, 1))) |> 
+  unnest(age_range) |> 
+  rename(age_group = age,
+         age = age_range) |> 
+  mutate(range = age_last - age_first + 1,
+         ave_convs = convs / range) |> 
+  filter(age <= 50) |> 
+  ggplot(aes(x = age, y = ave_convs,
+             colour = as.numeric(year),
+             group = year)) +
+  geom_line() +
+  facet_wrap(~ sex)
 
 nor_pop |> 
   mutate(year = as.numeric(year)) |> 
