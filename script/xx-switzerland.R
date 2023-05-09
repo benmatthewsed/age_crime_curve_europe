@@ -2,6 +2,9 @@ library(tidyverse)
 library(readxl)
 library(ungroup)
 
+source(here::here("script",
+                  "xx-functions.R"))
+
 switz <- read_excel("data/je-e-19.03.02.02.02.01.02b.xlsx", 
                                          sheet = "Total", skip = 4)
 
@@ -163,3 +166,58 @@ switz_pop |>
          age = x2) |> 
   mutate(year = as.numeric(str_remove_all(year, "x")),
          age = as.numeric(age))
+
+switz_pop <- 
+switz_pop |> 
+  mutate(sex = "males")
+
+# at the moment you need to have a variable sex == males
+# in the pop data
+
+switz_pop_agg <- 
+aggregate_demog(convs_data = switz,
+                demog_data = switz_pop)
+
+switz_pop_agg_w <- 
+switz_pop_agg |> 
+  pivot_wider(names_from = c(year),
+              values_from = pop) |> 
+  select(-age)
+
+res <- 
+  pclm2D(
+    x = ages$age,
+    y = switz_wid |> select(-age),
+    offset = as.data.frame(switz_pop_agg_w) / 1000,
+    control = list(lambda = c(NA, NA)),
+    nlast = 20
+  )
+
+
+res$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1984`:`2007`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50) |> 
+  group_by(year) |> 
+  ggplot(aes(x = year, y = age, fill = n)) +
+  geom_tile() +
+  coord_equal() +
+  scale_fill_viridis_c()
+
+
+res$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1984`:`2007`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50) |> 
+  ggplot(aes(x = age, y = n, colour = factor(year))) +
+  geom_line()
