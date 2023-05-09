@@ -29,14 +29,10 @@ dat_ages <-
 # watch out for coding of sex
 
 left_join(dat_ages, demog_data |> mutate(age = as.numeric(age))) |> 
-  filter(!is.na(age_group),
-         sex == "males") |> 
-  group_by(age_group, year) |> 
+  filter(!is.na(age_group)) |> 
+  group_by(age_group, sex, year) |> 
   summarise(pop = sum(pop)) |> 
   ungroup() |> 
   rename(age = age_group)
 
 }
-
-
-aggregate_demog(finland, fin_pop_long)
