@@ -417,3 +417,38 @@ res_w_rate$fitted |>
   ggplot(aes(x = age, y = n, group = year, colour = as.numeric(year))) +
   facet_wrap(~ year) +
   geom_line()
+
+
+
+# k-stest
+
+den_fit <- 
+res$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1980`:`2021`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50)
+
+
+den_fit |> 
+  unnest() |> 
+  group_by(year) |> 
+  mutate(prop = n / sum(n)) |> 
+  ggplot(aes(x = age, y = prop, group = year, colour = as.numeric(year))) +
+  geom_line()  
+
+
+den_fit |> 
+  unnest() |> 
+  group_by(year) |> 
+  mutate(prop = n / sum(n),
+         cum_prop = cumsum(prop)) |> 
+  ggplot(aes(x = as.numeric(year), y = age, fill = cum_prop)) +
+  geom_tile() +
+  coord_equal() +
+  geom_contour(aes(z = cum_prop)) +
+  scale_fill_viridis_c()

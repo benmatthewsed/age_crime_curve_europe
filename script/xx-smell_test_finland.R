@@ -275,3 +275,77 @@ fin_m_rate$fitted |>
   filter(age < 50) |> 
   ggplot(aes(x = age, y = n, group = year, colour = as.numeric(year))) +
   geom_line()
+
+
+
+fin_m_tmp <- 
+fin_m_rate$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1990`:`2021`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50)
+
+fin_m_tmp <- 
+fin_m_tmp |> 
+  mutate(convictions = n) |> 
+  group_by(year) |> 
+  nest() |> 
+  ungroup()
+
+fin_m_tmp |> 
+  mutate(ks_result = map(data, ~ ks_test(.x, fin_m_tmp$data[[1]]))) |> 
+  unnest(ks_result) |> 
+  mutate(year = as.integer(year)) |> 
+  ggplot(aes(x = year, y = statistic)) +
+  geom_line() +
+  geom_hline(yintercept = 0.05)
+
+
+fin_m_tmp |> 
+  unnest() |> 
+  group_by(year) |> 
+  mutate(prop = n / sum(n)) |> 
+  ggplot(aes(x = age, y = prop, group = year, colour = as.numeric(year))) +
+  geom_line()
+
+
+
+fin_m_tmp |> 
+  unnest() |> 
+  group_by(age) |> 
+  mutate(index_convictions = convictions / convictions[year == "1990"]) |> 
+  ggplot(aes(x = as.numeric(year), y = age, fill = index_convictions)) +
+  geom_tile() +
+  coord_equal() +
+  scale_fill_viridis_c()
+
+# just index change
+
+fin_m_tmp |> 
+  unnest() |> 
+  group_by(age) |> 
+  mutate(delta_convictions = convictions / convictions[year == "1990"]) |> 
+  ggplot(aes(x = as.numeric(year), y = age, fill = index_convictions)) +
+  geom_tile() +
+  coord_equal() +
+  scale_fill_viridis_c()
+
+
+
+
+# cumulative ACC
+
+fin_m_tmp |> 
+  unnest() |> 
+  group_by(year) |> 
+  mutate(prop = convictions / sum(convictions),
+         cum_prop = cumsum(prop)) |> 
+  ggplot(aes(x = as.numeric(year), y = age, fill = cum_prop)) +
+  geom_tile() +
+  coord_equal() +
+  geom_contour(aes(z = cum_prop)) +
+  scale_fill_viridis_c()

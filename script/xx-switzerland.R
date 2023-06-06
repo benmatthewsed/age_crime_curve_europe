@@ -221,3 +221,50 @@ res$fitted |>
   filter(age < 50) |> 
   ggplot(aes(x = age, y = n, colour = factor(year))) +
   geom_line()
+
+
+switz <- 
+res$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1984`:`2007`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50)
+
+switz_tmp <- 
+switz |> 
+  mutate(convictions = n) |> 
+  group_by(year) |> 
+  nest() |> 
+  ungroup()
+  
+
+switz_tmp |> 
+  mutate(ks_result = map(data, ~ ks_test(.x, switz_tmp$data[[1]]))) |> 
+  unnest(ks_result) |> 
+  mutate(year = as.integer(year)) |> 
+  ggplot(aes(x = year, y = p.value)) +
+  geom_line() +
+  geom_hline(yintercept = 0.05)
+
+
+
+switz_tmp |> 
+  unnest() |> 
+  group_by(year) |> 
+  mutate(prop = n / sum(n)) |> 
+  ggplot(aes(x = age, y = prop, group = year, colour = as.numeric(year))) +
+  geom_line()  
+
+
+switz_tmp |> 
+  unnest() |> 
+  group_by(age) |> 
+  mutate(index_convictions = convictions / convictions[year == "1984"]) |> 
+  ggplot(aes(x = as.numeric(year), y = age, fill = index_convictions)) +
+  geom_tile() +
+  coord_equal() +
+  scale_fill_viridis_c()
