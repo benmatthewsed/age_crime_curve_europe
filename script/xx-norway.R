@@ -14,23 +14,52 @@ source(here::here("script",
 nor <- 
 read_excel(
   here::here("data",
-             "10623_20230505-183302.xlsx"),
-  range = "D3:Y53"
+             "10623_20230531-172447.xlsx"),
+  range = "B3:Y1103"
 )
 
 nor <- 
 nor |> 
-  rename(age = ...1, sex = ...2) |> 
-  fill(age, .direction = "down") |> 
+  rename(sanction_type = ...1,
+         x = ...2, 
+         age = ...3,
+         sex = ...4) |> 
+  fill(sanction_type, x, age, .direction = "down") |> 
   pivot_longer(cols = `2002`:`2021`,
                names_to = "year",
                values_to = "convs") |> 
   filter(age != "Total")
 
+all_nor <- 
+nor |> 
+  filter(sanction_type == "All types of sanctions")
+
+nor_fine <- 
+nor |> 
+  filter(sanction_type == "On the spot fine") |> 
+  rename(fines = convs) |> 
+  select(-sanction_type)
+
+nor <- 
+left_join(all_nor, nor_fine, join_by(x == x,
+                                     age == age,
+                                     sex == sex,
+                                     year == year)) |> 
+  mutate(new_total = convs - fines)
+
 nor <- 
 nor |> 
   filter(age != "All ages 15 years or older",
-         sex != "Total")
+         sex != "Total") |> 
+  filter(age != "Unknown age") |> 
+  select(-x)
+
+nor <- 
+nor |> 
+  select(-sanction_type,
+         -convs,
+         -fines) |> 
+  rename(convs = new_total)
 
 ages <- 
 nor |> 
@@ -41,9 +70,14 @@ nor |>
   mutate(age = as.numeric(stringr::str_sub(age, 1, 2)))
 
 
+nor |> 
+  count(age)
+
+
+
 wid_dat <- 
   nor |> 
-  filter(sex == "Total") |> 
+  filter(sex == "Both sexes") |> 
   pivot_wider(names_from = c(year),
               values_from = convs) |> 
   select(-sex, -age)
@@ -334,3 +368,11 @@ nor_tmp |>
   geom_tile() +
   coord_equal() +
   scale_fill_viridis_c()
+
+
+nor_tmp |> 
+  unnest() |> 
+  group_by(year) |> 
+  mutate(prop = convictions / sum(convictions)) |> 
+  ggplot(aes(x = age, y = prop, group = year, colour = as.numeric(year))) +
+  geom_line()  
