@@ -5,15 +5,18 @@ library(ungroup)
 source(here::here("script",
                   "xx-functions.R"))
 
-switz <- read_excel("data/je-e-19.03.02.02.02.01.02b.xlsx", 
+switz_07 <- read_excel("data/je-e-19.03.02.02.02.01.02b.xlsx", 
                                          sheet = "Total", skip = 4)
 
 
+switz_20 <- read_excel("data/je-e-19.03.02.02.02.01.02a.xlsx", 
+                    sheet = "Total", skip = 4)
 
 
 
-switz <- 
-switz |> 
+
+switz_07 <- 
+switz_07 |> 
   janitor::clean_names() |> 
   rename(year = x1,
          convictions = x2,
@@ -28,13 +31,42 @@ switz |>
          age = str_remove_all(age, c("_years")))
 
 
-switz_wid <- 
-switz |> 
+switz_07_wid <- 
+switz_07 |> 
   filter(str_length(year) == 4) |> 
   mutate(year = as.integer(year),
          conv = as.integer(conv)) |> 
   pivot_wider(names_from = c(year),
               values_from = conv)
+
+
+switz_20 <- 
+  switz_20 |> 
+  janitor::clean_names() |> 
+  rename(year = x1,
+         convictions = x2,
+         adults_convicted = x3) |> 
+  select(year, contains("between")) |> 
+  filter(!is.na(year)) |> 
+  pivot_longer(cols = -year,
+               names_to = "age",
+               values_to = "conv") |> 
+  mutate(age = str_remove_all(age, c("between_")),
+         age = str_remove_all(age, c("_and")),
+         age = str_remove_all(age, c("_years")))
+
+switz <- 
+  bind_rows(switz_07, switz_20)
+
+switz_wid <- 
+  switz |> 
+  filter(str_length(year) == 4) |> 
+  mutate(year = as.integer(year),
+         conv = as.integer(conv)) |> 
+  pivot_wider(names_from = c(year),
+              values_from = conv)
+
+
 
 
 ages <- 
@@ -112,7 +144,7 @@ res$fitted |>
   tibble::rownames_to_column() |> 
   as_tibble() |> 
   mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
-  pivot_longer(cols = `1984`:`2007`,
+  pivot_longer(cols = `1984`:`2020`,
                values_to = "n",
                names_to = "year") |> 
   filter(age < 50) |> 
@@ -158,8 +190,8 @@ switz_pop |>
          x2 = str_remove_all(x2, "([A-Za-z]+)"),
          x2 = str_remove_all(x2, " ")) |> 
   filter(x1 == "total") |> 
-  select(x1:x2007) |> 
-  pivot_longer(x1984:x2007,
+  select(x1:x2020) |> 
+  pivot_longer(x1984:x2020,
                names_to = "year",
                values_to = "pop") |> 
   rename(sex = x1,
@@ -188,7 +220,7 @@ res <-
   pclm2D(
     x = ages$age,
     y = switz_wid |> select(-age),
-    offset = as.data.frame(switz_pop_agg_w) / 1000,
+    offset = as.data.frame(switz_pop_agg_w |> select(-sex)) / 1000,
     control = list(lambda = c(NA, NA)),
     nlast = 20
   )
@@ -229,7 +261,7 @@ res$fitted |>
   tibble::rownames_to_column() |> 
   as_tibble() |> 
   mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
-  pivot_longer(cols = `1984`:`2007`,
+  pivot_longer(cols = `1984`:`2020`,
                values_to = "n",
                names_to = "year") |> 
   filter(age < 50)
