@@ -349,3 +349,12 @@ fin_m_tmp |>
   coord_equal() +
   geom_contour(aes(z = cum_prop)) +
   scale_fill_viridis_c()
+
+fin_total <- 
+finland |> 
+  filter(gender == "Total") |> 
+  mutate(year = as.numeric(year)) |> 
+  group_by(year) |> 
+  summarise(conv = sum(convicted_number)) |> 
+  mutate(country = "Finland")
+
