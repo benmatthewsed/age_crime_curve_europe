@@ -1,6 +1,7 @@
 # load packages
 
 library(tidyverse)
+library(gganimate)
 
 # download the data if file doesn't exist
 
@@ -23,7 +24,8 @@ soi <-
 allCrimes |> 
   janitor::clean_names()
 
-soi |> 
+soi |>   
+  filter(age != "All") |> 
   mutate(age = as.numeric(as.character(age))) |> 
   filter(gender != "All",
          str_detect(measurement_type, "Rate"),
@@ -37,6 +39,7 @@ soi |>
 
 
 soi |> 
+  filter(age != "All") |> 
   mutate(age = as.numeric(as.character(age))) |> 
   filter(gender != "All",
          str_detect(measurement_type, "Rate"),
@@ -54,7 +57,9 @@ soi |>
 
 soi_tmp <- 
 soi |> 
+  filter(age != "All") |> 
   mutate(age = as.numeric(as.character(age))) |> 
+  filter(age != "All") |> 
   filter(gender != "All",
          str_detect(measurement_type, "Rate"),
          crime_type == "All crimes and offences",
@@ -108,3 +113,48 @@ soi_tmp_m |>
   coord_equal() +
   geom_contour(aes(z = cum_prop)) +
   scale_fill_viridis_c()
+
+soi_total <- 
+soi |>   
+  filter(age != "All") |> 
+  mutate(age = as.numeric(as.character(str_sub(age, 1, 2)))) |> 
+  filter(gender == "All",
+         str_detect(measurement_type, "Count"),
+         crime_type == "All crimes and offences") |> 
+  group_by(year) |> 
+  summarise(conv = sum(convictions)) |> 
+  mutate(country = "Scotland")
+
+soi_anim <- 
+soi |> 
+  filter(age != "All") |> 
+  mutate(age = as.numeric(as.character(str_sub(age, 1, 2)))) |> 
+  filter(gender == "All",
+         str_detect(measurement_type, "Rate"),
+         crime_type == "All crimes and offences",
+         age > 15 & age <= 50) |> 
+  ggplot(aes(x = age, y = convictions, group = year)) +
+  geom_line() +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {as.integer(frame_time)}', x = 'Age', y = 'Convicton rate') +
+  transition_time(year)
+
+
+gganimate::animate(soi_anim,
+                   renderer = gifski_renderer())
+
+anim_save(filename = "soi_anim.gif",
+          path = here::here("figures"))
+
+
+soi |> 
+  filter(age != "All") |> 
+  mutate(age = as.numeric(as.character(str_sub(age, 1, 2)))) |> 
+  filter(gender == "All",
+         str_detect(measurement_type, "Rate"),
+         crime_type == "All crimes and offences",
+         age > 15 & age <= 50) |> 
+  ggplot(aes(x = year, y = age, fill = convictions)) +
+  geom_tile() +
+  scale_fill_viridis_c(option = "plasma") +
+  coord_equal()
