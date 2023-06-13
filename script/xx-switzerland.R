@@ -311,4 +311,5 @@ switz_tmp |>
 switz_total <- 
 switz |> 
   group_by(year) |> 
-  summarise(conv = sum(as.numeric(conv)))
+  summarise(conv = sum(as.numeric(conv))) |> 
+  mutate(country = "Switzerland")
