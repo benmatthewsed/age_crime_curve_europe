@@ -34,6 +34,9 @@ denmark |>
   geom_col(fill = "black") +
   facet_grid(year ~ sex)
 
+denmark |> 
+  count(age)
+
 ages <- 
   denmark |> 
   filter(sex == "Men") |> 
@@ -452,3 +455,11 @@ den_fit |>
   coord_equal() +
   geom_contour(aes(z = cum_prop)) +
   scale_fill_viridis_c()
+
+
+den_total <- 
+denmark |> 
+  mutate(year = as.numeric(year)) |> 
+  group_by(year) |> 
+  summarise(conv = sum(convictions)) |> 
+  mutate(country = "Denmark")
