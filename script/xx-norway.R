@@ -376,3 +376,12 @@ nor_tmp |>
   mutate(prop = convictions / sum(convictions)) |> 
   ggplot(aes(x = age, y = prop, group = year, colour = as.numeric(year))) +
   geom_line()  
+
+
+nor_total <- 
+nor |> 
+  filter(sex == "Both sexes") |> 
+  mutate(year = as.numeric(year)) |> 
+  group_by(year) |> 
+  summarise(conv = sum(convs)) |> 
+  mutate(country = "Norway")
