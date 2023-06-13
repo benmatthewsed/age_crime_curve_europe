@@ -6,12 +6,11 @@ source(here::here("script",
                   "xx-functions.R"))
 
 switz_07 <- read_excel("data/je-e-19.03.02.02.02.01.02b.xlsx", 
-                                         sheet = "Total", skip = 4)
+                                         sheet = "Total", range = "A5:O30")
 
 
 switz_20 <- read_excel("data/je-e-19.03.02.02.02.01.02a.xlsx", 
-                    sheet = "Total", skip = 4)
-
+                    sheet = "Total", range = "A5:O20")
 
 
 
@@ -21,14 +20,16 @@ switz_07 |>
   rename(year = x1,
          convictions = x2,
          adults_convicted = x3) |> 
-  select(year, contains("between")) |> 
+  select(year, contains(c("between", "over"))) |> 
   filter(!is.na(year)) |> 
   pivot_longer(cols = -year,
                names_to = "age",
                values_to = "conv") |> 
   mutate(age = str_remove_all(age, c("between_")),
          age = str_remove_all(age, c("_and")),
-         age = str_remove_all(age, c("_years")))
+         age = str_remove_all(age, c("_years")),
+         age = str_remove_all(age, c("_over")),
+         age = str_remove_all(age, c("x")))
 
 
 switz_07_wid <- 
@@ -46,14 +47,19 @@ switz_20 <-
   rename(year = x1,
          convictions = x2,
          adults_convicted = x3) |> 
-  select(year, contains("between")) |> 
+  select(year, contains(c("between", "over"))) |> 
   filter(!is.na(year)) |> 
   pivot_longer(cols = -year,
                names_to = "age",
                values_to = "conv") |> 
   mutate(age = str_remove_all(age, c("between_")),
          age = str_remove_all(age, c("_and")),
-         age = str_remove_all(age, c("_years")))
+         age = str_remove_all(age, c("_years")),
+         age = str_remove_all(age, c("_over")),
+         age = str_remove_all(age, c("x")),
+         year = as.integer(str_sub(year, 1, 4)))
+
+
 
 switz <- 
   bind_rows(switz_07, switz_20)
@@ -300,3 +306,9 @@ switz_tmp |>
   geom_tile() +
   coord_equal() +
   scale_fill_viridis_c()
+
+
+switz_total <- 
+switz |> 
+  group_by(year) |> 
+  summarise(conv = sum(as.numeric(conv)))
