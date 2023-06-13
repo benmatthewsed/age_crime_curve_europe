@@ -1,6 +1,3 @@
-install.packages("fasano.franceschini.test")
-install.packages("ks")
-
 library(fasano.franceschini.test)
 library(ks)
 library(philentropy)
@@ -18,6 +15,9 @@ S2 <- data.frame(x = rnorm(n = 100, mean = 0, sd = 1),
 
 fasano.franceschini.test(x, y, seed = 0)
 
+
+
+45/52
 
 fasano.franceschini.test(S1, S2, seed = 0)
 
@@ -65,3 +65,22 @@ kde.test(soi |> select(age, year, convictions)
                            mutate(year = as.numeric(year)))
 
 KL(cbind(nor, soi))
+
+
+
+# will it find differences between locations
+
+library(fasano.franceschini.test)
+library(ks)
+library(philentropy)
+
+set.seed(8192)
+samp <- 1000
+x <- rnorm.mixt(n=samp, mus=0, sigmas=1, props=1)
+y <- rnorm.mixt(n=samp, mus=5, sigmas=1, props=1)
+kde.test(x1=x, x2=y)$pvalue
+
+
+x <- rnorm.mixt(n=samp, mus=0, sigmas=1, props=1)
+y <- rnorm.mixt(n=samp, mus=0, sigmas=1, props=1)
+kde.test(x1=x, x2=y)$pvalue
