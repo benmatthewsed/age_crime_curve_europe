@@ -1,7 +1,8 @@
 library(tidyverse)
 library(readxl)
-
+library(gganimate)
 library(ungroup)
+library(ggridges)
 
 source(here::here("script",
                   "xx-functions.R"))
@@ -385,3 +386,60 @@ nor |>
   group_by(year) |> 
   summarise(conv = sum(convs)) |> 
   mutate(country = "Norway")
+
+
+
+nor_res <- 
+  res$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `2002`:`2021`,
+               values_to = "n",
+               names_to = "year") |> 
+  filter(age < 50) |> 
+  rename(convictions = n)
+
+nor_anim <- 
+  nor_res |> 
+  mutate(year = as.numeric(year)) |> 
+  ggplot(aes(x = age, y = convictions, group = year)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_x_continuous(limits = c(15, 50)) +
+  theme(element_text(size = 20)) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Country: Norway, Year: {as.integer(frame_time)}', x = 'Age', y = 'Convicton rate') +
+  transition_time(year)
+  
+
+
+gganimate::animate(nor_anim,
+                   renderer = gifski_renderer())
+
+anim_save(filename = "nor_anim.gif",
+          path = here::here("outputs", "figures"))
+
+
+nor_res |> 
+  mutate(rel_convictions = convictions / max(convictions)) |> 
+  ggplot(aes(x = age, y = fct_rev(year), height = rel_convictions)) + 
+  geom_ridgeline(stat = "identity", 
+                 scale = 0.9, draw_baseline = FALSE)
+
+
+nor_res |> 
+  as_tibble() |> 
+  group_by(year) |> 
+  summarise(mean_age = weighted.mean(age, convictions),
+            median_age = matrixStats::weightedMedian(age, convictions),
+            skew = moments::skewness(convictions),
+            kurtosis = moments::kurtosis(convictions)) |> 
+  pivot_longer(-year,
+               names_to = "measure",
+               values_to = "value") |>
+  mutate(country = "Norway") |> 
+  ggplot(aes(x = year, y = value, group = measure)) +
+  geom_line() +
+  facet_wrap(~ measure, scales = "free")
