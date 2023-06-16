@@ -3,6 +3,8 @@
 library(tidyverse)
 library(gganimate)
 
+source(here::here("script", "xx-functions.R"))
+
 # download the data if file doesn't exist
 
 
@@ -73,16 +75,6 @@ soi_tmp |>
 
 
 
-ks_test <- function(data, data2){
-  
- tmp <-  stats::ks.test(data$convictions,
-                 data2$convictions)
-  
-tibble(p.value = tmp$p.value,
-       statistic = tmp$statistic)
- 
-}
-
 soi_tmp_m <- 
 soi_tmp |> 
   filter(gender == "Male") |> 
@@ -134,7 +126,7 @@ soi |>
          crime_type == "All crimes and offences",
          age > 15 & age <= 50) |> 
   ggplot(aes(x = age, y = convictions, group = year)) +
-  geom_line() +
+  geom_bar() +
   # Here comes the gganimate specific bits
   labs(title = 'Year: {as.integer(frame_time)}', x = 'Age', y = 'Convicton rate') +
   transition_time(year)
@@ -144,9 +136,9 @@ gganimate::animate(soi_anim,
                    renderer = gifski_renderer())
 
 anim_save(filename = "soi_anim.gif",
-          path = here::here("figures"))
+          path = here::here("outputs", "figures"))
 
-
+soi_tmp <- 
 soi |> 
   filter(age != "All") |> 
   mutate(age = as.numeric(as.character(str_sub(age, 1, 2)))) |> 
@@ -158,3 +150,55 @@ soi |>
   geom_tile() +
   scale_fill_viridis_c(option = "plasma") +
   coord_equal()
+
+ggsave(
+  here::here("outputs", "figures", "soi_tmp_lexis.png"),
+  soi_tmp
+)
+
+
+
+
+# descriptives ------------------------------------------------------------
+
+
+
+scot_sum <- 
+soi |> 
+  filter(age != "All") |> 
+  mutate(age = as.numeric(as.character(age))) |> 
+  filter(gender == "All",
+         str_detect(measurement_type, "Rate"),
+         crime_type == "All crimes and offences",
+         age < 50) |> 
+  as_tibble() |> 
+  group_by(year) |> 
+  summarise(mean_age = weighted.mean(age, convictions),
+            median_age = matrixStats::weightedMedian(age, convictions),
+            skew = moments::skewness(convictions),
+            kurtosis = moments::kurtosis(convictions)) |> 
+  pivot_longer(-year,
+               names_to = "measure",
+               values_to = "value") |>
+  mutate(country = "Scotland")
+
+
+bind_rows(scot_sum, switz_sum)
+
+scot_sum |> 
+  ggplot(aes(x = year, y = value, group = measure)) +
+  geom_line() +
+  facet_wrap(~ measure, scales = "free")
+
+soi |> 
+  filter(age != "All") |> 
+  mutate(age = as.numeric(as.character(str_sub(age, 1, 2)))) |> 
+  filter(gender == "All",
+         str_detect(measurement_type, "Rate"),
+         crime_type == "All crimes and offences",
+         age > 15 & age <= 50) |> 
+  as_tibble() |> 
+  mutate(convictions = convictions / max(convictions)) |> 
+  ggplot(aes(x = age, y = fct_rev(factor(year)), height = convictions)) + 
+  geom_ridgeline(stat = "identity", 
+                 scale = 0.9, draw_baseline = FALSE)
