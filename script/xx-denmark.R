@@ -13,6 +13,10 @@ library(readxl)
 library(tidyverse)
 library(ungroup)
 
+source(here::here("script",
+                  "xx-functions.R"))
+
+
 denmark <- read_csv("data/202333181848410289597STRAF4066505949901.csv",
 skip = 2)
 
