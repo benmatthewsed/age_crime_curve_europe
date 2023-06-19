@@ -1,0 +1,198 @@
+---
+title: "The age-crime curve and the crime drop in (some of) Northern Europe"
+institute: "University of Stirling"
+author: "Dr. Ben Matthews"
+date: "2023-06-06"
+format: revealjs
+editor: visual
+---
+
+## Background
+
+- In lots of places there's less crime than there used to be - this is known as the international crime drop
+
+- Understandably people want to know why
+
+- Explanations for the crime drop are basically all inductive, using 'data signatures' to speculate possible causes
+
+- We can use change in the age distribution of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al. 2016)
+
+- Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983) - indeed this was part of the 'great debate' in developmental criminology in the 1980s
+
+
+## Background
+
+- Some types of crime drop explanation to do with things like better security measures imply mostly period effects
+
+-   One the other hand, there have been falls in other 'risky behaviours' (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al. 2023)
+
+-  "The crime drop in Scotland is a youth crime drop" (Matthews and Minton, 2017)
+
+-   Some evidence that this 'youth crime drop' differs in magnitude between countries (e.g. Matthews and Minton 2017; Farrell et al 2015; Sivertsson?), and in general there are questions about how 'international' the International crime drop is (Kotze 2019)
+
+-   But no (as far as I'm aware) systematic comparison about how the age-crime curve has changed over time
+
+
+## Research Design
+
+-   Aim: compare changing age-crime curves across Northern Europe
+
+-   A lot of interesting register data analysis is in Northern Europe (because of data availability)
+
+-   Want to know how far we can generalize findings from these countries to areas which don't have this kind of data availability (although this is always an empirical question)
+
+-   Data from national statistical agencies (except for Scotland)
+
+-   Problem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries
+
+-   Solution: use `Penalized Composite Link Model` to construct smooth age-year-conviction surfaces
+
+## Data
+
+-   Conviction numbers by age for Scotland, Norway, Finland and Denmark
+
+-   Also available by sex (but not analysed separately here in interested of time)
+
+-   Time periods covered:
+
+    -   Scotland: 1990-2018
+
+    -   Norway: 2002-2021
+
+    -   Finland: 1990-2021
+
+    -   Denmark: 1980-2021
+
+-   No data (that I could find) for Sweden or the Netherlands!
+
+-   Through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...
+
+## Data
+
+-   Age bands used:
+
+    -   Scotland: single year of age (!) from age 12
+
+    -   Norway: 15-17; 18-20; 21-24; 25-29; 30-39; 40-49; 50-59; \>=60
+
+    -   Finland: 15-17; 18-20; 21-24; 25-29; 30-39; 40-49; 50-59; 60-69; 70-79; \>=80
+
+    -   Denmark: 15-24 single year of age; 25-29; 30-39; 40-49; 50-59; 60-69; 70-79; \>=80
+
+## Analytical plan
+
+-   How (qualitatively) similar is the change in the ACC between countries?
+-   How much (qualitatively) does the ACC change within countries over time?
+- Precision? No
+- Vibes? Yes
+
+## Measures
+
+-   Prevalence or incidence?
+-   All crime types?
+    - Yes. At least this is... less controversially comparable (at least after standardizing within country?)
+-   All convictions?
+    - In Norway I removed on the spot fines because that's what SSB do
+
+## Methods
+
+-   Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates
+
+-   Used `R` implementation of Penalized Composite Link Model using library `ungroup`
+
+
+## Methods
+
+![Rizzi](resources/rizzi-2015-figure_one.png){fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
+
+
+
+## Methods
+
+- Models convictions data and population data together to estimate a smooth surface of conviction rates
+
+- Means that you probably shouldn't look for disruptions in the time series (policy shocks or what have you)
+
+- But you can look at overall trends
+
+## Modelling Assumptions
+
+-   This is an unusual (for me at least) use of a statistical model! For prediction rather than inference
+-   Model makes some assumptions:
+    -   "neighboring elements in _γ_ do not differ drastically"
+    -   "The smoothness assumption is implemented in a roughness penalty on the coefficients _β_"
+-   There is a penalty term _λ_ and what the model does is pick the 'best' value of _λ_ as determined by AIC
+-   This means that - in the frequentist setting - the final results are 'optimal' but you might be concerned about propagating uncertainty in λ through your analysis (Bayes doesn't have this problem, but has the problem of I don't know how to fit this model)
+
+## Whence uncertainty estimates?
+
+-   You can get standard errors for your estimates/confidence intervals for the estimated conviction count/rate for each age in each year, but these seemed not to make much difference to the results from a quick look so I haven't bothered here
+
+- This is because the age categories were coarse at older ages where there were also fewer convictions
+
+## Analysis
+
+-   Look at the results visually on the Lexis surface (Minton) and as a bunch of line charts
+-   Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)
+-   I did look into ways of quantifying how different each country's age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how 'similar' the age-crime surfaces are
+-   Can frame this as either 'how similar' (continuous) or 'are they statistically significantly different from each other' (discrete)
+-   Problem that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?
+-   Methods do exist but seem opaque to me - so I haven't bothered (yet)
+
+## The lexis surface
+
+![Minton](resources/minton_2020_lexis.png)
+
+
+## Results
+
+![trends](figures/overall_conviction_trends.png)
+
+## Comparing countries
+
+![Anim](figures/acc_anim.gif)
+
+## new page
+
+::: {#fig-acc layout-ncol="2"}
+![Age-crime curves](figures/acc_overall_fig.png)
+
+![Age-crime curves](figures/acc_std_facet.png)
+
+Title
+:::
+
+## ridgeline
+
+![Age-crime curves ridgelines](figures/acc_ridgeline.png)
+
+## summary statistics
+
+![Summary statistics](figures/summary_statistics.png)
+
+## age index
+
+::: {#fig-acc-index layout-ncol="2"}
+![Acc age index lexis](figures/acc_age_index_surface.png){#fig-surus}
+
+![Acc age index facet](figures/acc_age_index_facet.png){#fig-hanno}
+
+Some plots
+:::
+
+## Conclusions
+
+-   The crime drop *is* (mostly?) a youth crime drop
+-   Timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent?
+-   Don't see the same fall in for people at older ages
+-   But only really see the increases in convictions 30s-40s in Scotland
+-   So maybe you're happy if you're the 'generation sensible' people
+-   Scotland does seem like an odd fit with these comparators
+
+## Conclusions
+
+-   If you believe in the invariance these about the age-crime curve, you almost lose by winning - I'd say that three of the four countries showed pretty 'classic' age-crime curves throughout the period analysed, but one didn't
+- This is implies that there are between country differences in how the age-crime curve has changed over time
+- But the whole point of the invariance thesis is that it's invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a *bad* thing for the invariance thesis
+- This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
+- Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction
