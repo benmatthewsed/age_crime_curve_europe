@@ -2,7 +2,7 @@
 title: "The age-crime curve and the crime drop in (some of) Northern Europe"
 institute: "University of Stirling"
 author: "Dr. Ben Matthews"
-date: "2023-06-06"
+date: "2023-06-20"
 format: revealjs
 editor: visual
 ---
@@ -48,6 +48,7 @@ editor: visual
 ## Research Design
 
 ![Data interestingness](resources/heuristic_data_access.png)
+
 ## Research Design
 
 ![Data interestingness](resources/heuristic_data_access_2.png)
@@ -125,6 +126,10 @@ editor: visual
     - Country-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)
     - Country-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)
 
+
+
+## Methods
+
 - Country-standardized is good for understanding the crime drop (between country comparisons)
 - Country-year standardized is good for understanding the age-crime curve (within country comparisons)
 
@@ -186,12 +191,18 @@ editor: visual
 
 ## Comparing countries 7
 
-![Change in age-crime distribution from baseline](figures/acc_age_index_surface.png)
+![Change in age-indexed trends](figures/index_anim.gif)
 
-## Comparing countries 6
+## Comparing countries 8
 
-![Change in age-crime surface](figures/acc_age_index_facet.png)
+![Change in age-indexed trend](figures/acc_age_index_facet.png)
 
+
+
+
+## Comparing countries 9
+
+![Change in age-indexed trend](figures/acc_age_index_surface.png)
 
 
 ## Summary statistics
@@ -202,7 +213,7 @@ editor: visual
 
 -   The crime drop *is* (mostly?) a youth crime drop
 -   Timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005)
--   Don't see the same fall in convictions for people at older ages
+-   Don't see the same fall in convictions for older people
 -   But only really see the increases in convictions 30s-40s in Scotland
 -   So maybe you're happy if you're the 'generation sensible' people and you think there is something particular to youth crime that has driven the crime drop?
 -   Scotland does seem like an odd fit with these comparators
@@ -216,3 +227,10 @@ editor: visual
 ## Discussion
 -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
 -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?
+
+
+## Thank you!
+
+- Any questions?
+- The formatting for this presentation is a bit odd, because I thought I'd use this as a chance to force myself to learn [quarto](https://quarto.org/), which claims to be a sort of super reproducible publishing tool
+- This is... fine, but not something I'd recommend doing under time pressure!

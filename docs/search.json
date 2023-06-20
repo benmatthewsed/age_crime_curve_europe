@@ -25,7 +25,14 @@
     "href": "age_crime_curve_europe.html#research-design-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Research Design",
-    "text": "Research Design\n ## Research Design\n\n\n\nData interestingness"
+    "text": "Research Design\n\nData interestingness"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#research-design-2",
+    "href": "age_crime_curve_europe.html#research-design-2",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Research Design",
+    "text": "Research Design\n\nData interestingness"
   },
   {
     "objectID": "age_crime_curve_europe.html#data",
@@ -81,7 +88,14 @@
     "href": "age_crime_curve_europe.html#methods-3",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Methods",
-    "text": "Methods\n\nParameterize conviction rates as:\n\nRates\nCountry-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)\nCountry-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)\n\nCountry-standardized is good for understanding the crime drop (between country comparisons)\nCountry-year standardized is good for understanding the age-crime curve (within country comparisons)"
+    "text": "Methods\n\nParameterize conviction rates as:\n\nRates\nCountry-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)\nCountry-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#methods-4",
+    "href": "age_crime_curve_europe.html#methods-4",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Methods",
+    "text": "Methods\n\nCountry-standardized is good for understanding the crime drop (between country comparisons)\nCountry-year standardized is good for understanding the age-crime curve (within country comparisons)"
   },
   {
     "objectID": "age_crime_curve_europe.html#modelling-assumptions",
@@ -165,14 +179,21 @@
     "href": "age_crime_curve_europe.html#comparing-countries-7",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 7",
-    "text": "Comparing countries 7\n\nChange in age-crime distribution from baseline"
+    "text": "Comparing countries 7\n\nChange in age-indexed trends"
   },
   {
-    "objectID": "age_crime_curve_europe.html#comparing-countries-6-1",
-    "href": "age_crime_curve_europe.html#comparing-countries-6-1",
+    "objectID": "age_crime_curve_europe.html#comparing-countries-8",
+    "href": "age_crime_curve_europe.html#comparing-countries-8",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "Comparing countries 6",
-    "text": "Comparing countries 6\n\nChange in age-crime surface"
+    "section": "Comparing countries 8",
+    "text": "Comparing countries 8\n\nChange in age-indexed trend"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#comparing-countries-9",
+    "href": "age_crime_curve_europe.html#comparing-countries-9",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Comparing countries 9",
+    "text": "Comparing countries 9\n\nChange in age-indexed trend"
   },
   {
     "objectID": "age_crime_curve_europe.html#summary-statistics",
@@ -186,7 +207,7 @@
     "href": "age_crime_curve_europe.html#discussion",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Discussion",
-    "text": "Discussion\n\nThe crime drop is (mostly?) a youth crime drop\nTimings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005)\nDon’t see the same fall in convictions for people at older ages\nBut only really see the increases in convictions 30s-40s in Scotland\nSo maybe you’re happy if you’re the ‘generation sensible’ people and you think there is something particular to youth crime that has driven the crime drop?\nScotland does seem like an odd fit with these comparators"
+    "text": "Discussion\n\nThe crime drop is (mostly?) a youth crime drop\nTimings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005)\nDon’t see the same fall in convictions for older people\nBut only really see the increases in convictions 30s-40s in Scotland\nSo maybe you’re happy if you’re the ‘generation sensible’ people and you think there is something particular to youth crime that has driven the crime drop?\nScotland does seem like an odd fit with these comparators"
   },
   {
     "objectID": "age_crime_curve_europe.html#discussion-1",
@@ -201,6 +222,13 @@
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Discussion",
     "text": "Discussion\n\nThis initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data\nHaving done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#thank-you",
+    "href": "age_crime_curve_europe.html#thank-you",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Thank you!",
+    "text": "Thank you!\n\nAny questions?\nThe formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn quarto, which claims to be a sort of super reproducible publishing tool\nThis is… fine, but not something I’d recommend doing under time pressure!"
   },
   {
     "objectID": "outputs/acc_crime_drop_northern_europe.html#background",
