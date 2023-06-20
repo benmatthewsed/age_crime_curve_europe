@@ -60,7 +60,7 @@
     "href": "age_crime_curve_europe.html#methods-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Methods",
-    "text": "Methods\n\nRizzi"
+    "text": "Methods\n\nRizzi et al. 2015: Statistical model for grouped data"
   },
   {
     "objectID": "age_crime_curve_europe.html#methods-2",
@@ -88,14 +88,14 @@
     "href": "age_crime_curve_europe.html#analysis",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Analysis",
-    "text": "Analysis\n\nLook at the results visually on the Lexis surface (Minton) and as a bunch of line charts\nCalculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)\nI did look into ways of quantifying how different each country’s age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how ‘similar’ the age-crime surfaces are\nCan frame this as either ‘how similar’ (continuous) or ‘are they statistically significantly different from each other’ (discrete)\nProblem that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?\nMethods do exist but seem opaque to me - so I haven’t bothered (yet)"
+    "text": "Analysis\n\nLook at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts\nCalculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)\nI did look into ways of quantifying how different each country’s age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how ‘similar’ the age-crime surfaces are\nCan frame this as either ‘how similar’ (continuous) or ‘are they statistically significantly different from each other’ (discrete)\nProblem that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?\nMethods do exist but seem opaque to me - so I haven’t bothered (yet)"
   },
   {
     "objectID": "age_crime_curve_europe.html#the-lexis-surface",
     "href": "age_crime_curve_europe.html#the-lexis-surface",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "The lexis surface",
-    "text": "The lexis surface\n\nMinton"
+    "text": "The lexis surface\n\nMinton 2020"
   },
   {
     "objectID": "age_crime_curve_europe.html#results",
@@ -105,39 +105,60 @@
     "text": "Results\n\ntrends"
   },
   {
-    "objectID": "age_crime_curve_europe.html#comparing-countries",
-    "href": "age_crime_curve_europe.html#comparing-countries",
+    "objectID": "age_crime_curve_europe.html#comparing-countries-1",
+    "href": "age_crime_curve_europe.html#comparing-countries-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "Comparing countries",
-    "text": "Comparing countries\n\nAnim"
+    "section": "Comparing countries 1",
+    "text": "Comparing countries 1\n\nAge-crime curves in Northern Europe"
   },
   {
-    "objectID": "age_crime_curve_europe.html#new-page",
-    "href": "age_crime_curve_europe.html#new-page",
+    "objectID": "age_crime_curve_europe.html#comparing-countries-2",
+    "href": "age_crime_curve_europe.html#comparing-countries-2",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "new page",
-    "text": "new page\n\n\n\n\n\n\n\nAge-crime curves\n\n\n\n\n\n\n\nAge-crime curves\n\n\n\n\nFigure 1: Title"
+    "section": "Comparing countries 2",
+    "text": "Comparing countries 2\n\nAge-crime curves in Northern Europe (again)"
   },
   {
-    "objectID": "age_crime_curve_europe.html#ridgeline",
-    "href": "age_crime_curve_europe.html#ridgeline",
+    "objectID": "age_crime_curve_europe.html#comparing-countries-3",
+    "href": "age_crime_curve_europe.html#comparing-countries-3",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "ridgeline",
-    "text": "ridgeline\n\nAge-crime curves ridgelines"
+    "section": "Comparing countries 3",
+    "text": "Comparing countries 3\n\nAge-crime surfaces in Northern Europe"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#comparing-countries-4",
+    "href": "age_crime_curve_europe.html#comparing-countries-4",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Comparing countries 4",
+    "text": "Comparing countries 4\n\nAge-crime ridgelines in Northern Europe"
   },
   {
     "objectID": "age_crime_curve_europe.html#summary-statistics",
     "href": "age_crime_curve_europe.html#summary-statistics",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "summary statistics",
-    "text": "summary statistics\n\nSummary statistics"
+    "section": "Summary statistics",
+    "text": "Summary statistics\n\nSummary statistics"
   },
   {
-    "objectID": "age_crime_curve_europe.html#age-index",
-    "href": "age_crime_curve_europe.html#age-index",
+    "objectID": "age_crime_curve_europe.html#comparing-countries-5",
+    "href": "age_crime_curve_europe.html#comparing-countries-5",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "age index",
-    "text": "age index\n\n\n\n\n\n\n\n(a) Acc age index lexis\n\n\n\n\n\n\n\n(b) Acc age index facet\n\n\n\n\nFigure 2: Some plots"
+    "section": "Comparing countries 5",
+    "text": "Comparing countries 5\n\nChange in age-crime distribution from baseline"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#comparing-countries-6",
+    "href": "age_crime_curve_europe.html#comparing-countries-6",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Comparing countries 6",
+    "text": "Comparing countries 6\n\nChange in age-crime surface"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#comparing-countries-7",
+    "href": "age_crime_curve_europe.html#comparing-countries-7",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Comparing countries 7",
+    "text": "Comparing countries 7\n\nChange in age-crime surface"
   },
   {
     "objectID": "age_crime_curve_europe.html#conclusions",

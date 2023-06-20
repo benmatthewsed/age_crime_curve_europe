@@ -431,13 +431,13 @@ Dr.&nbsp;Ben Matthews
 <section id="methods-1" class="slide level2">
 <h2>Methods</h2>
 
-<img data-src="resources/rizzi-2015-figure_one.png" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption">Rizzi</p></section>
+<img data-src="resources/rizzi-2015-figure_one.png" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption">Rizzi et al.&nbsp;2015: Statistical model for grouped data</p></section>
 <section id="methods-2" class="slide level2">
 <h2>Methods</h2>
 <ul>
 <li><p>Models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
 <li><p>Means that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
-<li><p>But you can look at overall trends</p></li>
+<li><p>But you <em>can</em> look at overall trends</p></li>
 </ul>
 </section>
 <section id="modelling-assumptions" class="slide level2">
@@ -463,86 +463,54 @@ Dr.&nbsp;Ben Matthews
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
 <ul>
-<li>Look at the results visually on the Lexis surface (Minton) and as a bunch of line charts</li>
+<li>Look at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts</li>
 <li>Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)</li>
-<li>I did look into ways of quantifying how different each country’s age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how ‘similar’ the age-crime surfaces are</li>
+<li>I did look into ways of quantifying how different each country’s age-crime surface was (things like 2D generalizations of <a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">Kolmogorov-Smirnov tests</a> and that sort of thing), to quantify how ‘similar’ the age-crime surfaces are</li>
 <li>Can frame this as either ‘how similar’ (continuous) or ‘are they statistically significantly different from each other’ (discrete)</li>
-<li>Problem that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?</li>
+<li>Problem that the time series are different lengths (for methods like <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback-Leibler divergence</a> at least this is a problem)?</li>
 <li>Methods do exist but seem opaque to me - so I haven’t bothered (yet)</li>
 </ul>
 </section>
 <section id="the-lexis-surface" class="slide level2">
 <h2>The lexis surface</h2>
 
-<img data-src="resources/minton_2020_lexis.png" class="r-stretch quarto-figure-center"><p class="caption">Minton</p></section>
+<img data-src="resources/minton_2020_lexis.png" class="r-stretch quarto-figure-center"><p class="caption">Minton 2020</p></section>
 <section id="results" class="slide level2">
 <h2>Results</h2>
 
 <img data-src="figures/overall_conviction_trends.png" class="r-stretch quarto-figure-center"><p class="caption">trends</p></section>
-<section id="comparing-countries" class="slide level2">
-<h2>Comparing countries</h2>
+<section id="comparing-countries-1" class="slide level2">
+<h2>Comparing countries 1</h2>
 
-<img data-src="figures/acc_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Anim</p></section>
-<section id="new-page" class="slide level2">
-<h2>new page</h2>
-<div id="fig-acc" class="quarto-layout-panel">
-<figure>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures/acc_overall_fig.png"></p>
-<p></p><figcaption>Age-crime curves</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures/acc_std_facet.png"></p>
-<p></p><figcaption>Age-crime curves</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p><figcaption>Figure&nbsp;1: Title</figcaption><p></p>
-</figure>
-</div>
-</section>
-<section id="ridgeline" class="slide level2">
-<h2>ridgeline</h2>
+<img data-src="figures/acc_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Age-crime curves in Northern Europe</p></section>
+<section id="comparing-countries-2" class="slide level2">
+<h2>Comparing countries 2</h2>
 
-<img data-src="figures/acc_ridgeline.png" class="r-stretch quarto-figure-center"><p class="caption">Age-crime curves ridgelines</p></section>
+<img data-src="figures/acc_overall_fig.png" class="r-stretch quarto-figure-center"><p class="caption">Age-crime curves in Northern Europe (again)</p></section>
+<section id="comparing-countries-3" class="slide level2">
+<h2>Comparing countries 3</h2>
+
+<img data-src="figures/acc_std_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Age-crime surfaces in Northern Europe</p></section>
+<section id="comparing-countries-4" class="slide level2">
+<h2>Comparing countries 4</h2>
+
+<img data-src="figures/acc_ridgeline.png" class="r-stretch quarto-figure-center"><p class="caption">Age-crime ridgelines in Northern Europe</p></section>
 <section id="summary-statistics" class="slide level2">
-<h2>summary statistics</h2>
+<h2>Summary statistics</h2>
 
 <img data-src="figures/summary_statistics.png" class="r-stretch quarto-figure-center"><p class="caption">Summary statistics</p></section>
-<section id="age-index" class="slide level2">
-<h2>age index</h2>
-<div id="fig-acc-index" class="quarto-layout-panel">
-<figure>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-surus" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures/acc_age_index_surface.png" data-ref-parent="fig-acc-index"></p>
-<p></p><figcaption>(a) Acc age index lexis</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-hanno" class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures/acc_age_index_facet.png" data-ref-parent="fig-acc-index"></p>
-<p></p><figcaption>(b) Acc age index facet</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p></p><figcaption>Figure&nbsp;2: Some plots</figcaption><p></p>
-</figure>
-</div>
-</section>
+<section id="comparing-countries-5" class="slide level2">
+<h2>Comparing countries 5</h2>
+
+<img data-src="figures/acc_age_index_surface.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-crime distribution from baseline</p></section>
+<section id="comparing-countries-6" class="slide level2">
+<h2>Comparing countries 6</h2>
+
+<img data-src="figures/acc_age_index_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-crime surface</p></section>
+<section id="comparing-countries-7" class="slide level2">
+<h2>Comparing countries 7</h2>
+
+<img data-src="figures/selected_years.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-crime surface</p></section>
 <section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
 <ul>
