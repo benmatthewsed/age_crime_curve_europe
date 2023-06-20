@@ -100,7 +100,7 @@ editor: visual
 
 ## Methods
 
-![Rizzi](resources/rizzi-2015-figure_one.png){fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
+![Rizzi et al. 2015: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
 
 ## Methods
 
@@ -108,7 +108,7 @@ editor: visual
 
 -   Means that you probably shouldn't look for disruptions in the time series (policy shocks or what have you)
 
--   But you can look at overall trends
+-   But you *can* look at overall trends
 
 ## Modelling Assumptions
 
@@ -127,52 +127,53 @@ editor: visual
 
 ## Analysis
 
--   Look at the results visually on the Lexis surface (Minton) and as a bunch of line charts
+-   Look at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts
 -   Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)
--   I did look into ways of quantifying how different each country's age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how 'similar' the age-crime surfaces are
+-   I did look into ways of quantifying how different each country's age-crime surface was (things like 2D generalizations of [Kolmogorov-Smirnov tests](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) and that sort of thing), to quantify how 'similar' the age-crime surfaces are
 -   Can frame this as either 'how similar' (continuous) or 'are they statistically significantly different from each other' (discrete)
--   Problem that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?
+-   Problem that the time series are different lengths (for methods like [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) at least this is a problem)?
 -   Methods do exist but seem opaque to me - so I haven't bothered (yet)
 
 ## The lexis surface
 
-![Minton](resources/minton_2020_lexis.png)
+![Minton 2020](resources/minton_2020_lexis.png)
 
 ## Results
 
 ![trends](figures/overall_conviction_trends.png)
 
-## Comparing countries
+## Comparing countries 1
 
-![Anim](figures/acc_anim.gif)
+![Age-crime curves in Northern Europe](figures/acc_anim.gif)
 
-## new page
+## Comparing countries 2
 
-::: {#fig-acc layout-ncol="2"}
-![Age-crime curves](figures/acc_overall_fig.png)
+![Age-crime curves in Northern Europe (again)](figures/acc_overall_fig.png)
 
-![Age-crime curves](figures/acc_std_facet.png)
+## Comparing countries 3
 
-Title
-:::
+![Age-crime surfaces in Northern Europe](figures/acc_std_facet.png)
 
-## ridgeline
+## Comparing countries 4
 
-![Age-crime curves ridgelines](figures/acc_ridgeline.png)
+![Age-crime ridgelines in Northern Europe](figures/acc_ridgeline.png)
 
-## summary statistics
+## Summary statistics
 
 ![Summary statistics](figures/summary_statistics.png)
 
-## age index
+## Comparing countries 5
 
-::: {#fig-acc-index layout-ncol="2"}
-![Acc age index lexis](figures/acc_age_index_surface.png){#fig-surus}
+![Change in age-crime distribution from baseline](figures/acc_age_index_surface.png)
 
-![Acc age index facet](figures/acc_age_index_facet.png){#fig-hanno}
+## Comparing countries 6
 
-Some plots
-:::
+![Change in age-crime surface](figures/acc_age_index_facet.png)
+
+## Comparing countries 7
+
+![Change in age-crime surface](figures/selected_years.png)
+
 
 ## Conclusions
 
