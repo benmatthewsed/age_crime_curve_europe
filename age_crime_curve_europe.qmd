@@ -43,7 +43,14 @@ editor: visual
 
 -   Problem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries
 
--   Solution: use `Penalized Composite Link Model` to construct smooth age-year-conviction surfaces
+-   Solution: use `Penalized Composite Link Model` to construct smooth age-year-conviction surfaces from publicly available data
+
+## Research Design
+
+![Data interestingness](resources/heuristic_data_access.png)
+## Research Design
+
+![Data interestingness](resources/heuristic_data_access_2.png)
 
 ## Data
 
@@ -100,7 +107,7 @@ editor: visual
 
 ## Methods
 
-![Rizzi et al. 2015: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
+![Rizzi et al. 2015, Figure 1: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){width=80% fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
 
 ## Methods
 
@@ -110,9 +117,19 @@ editor: visual
 
 -   But you *can* look at overall trends
 
+
+## Methods
+
+-   Parameterize conviction rates as:
+    - Rates
+    - Country-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)
+    - Country-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)
+
+- Country-standardized is good for understanding the crime drop (between country comparisons)
+- Country-year standardized is good for understanding the age-crime curve (within country comparisons)
+
 ## Modelling Assumptions
 
--   This is an unusual (for me at least) use of a statistical model! For prediction rather than inference
 -   Model makes some assumptions:
     -   "neighboring elements in *γ* do not differ drastically"
     -   "The smoothness assumption is implemented in a roughness penalty on the coefficients *β*"
@@ -120,6 +137,8 @@ editor: visual
 -   This means that - in the frequentist setting - the final results are 'optimal' but you might be concerned about propagating uncertainty in λ through your analysis (Bayes doesn't have this problem, but has the problem of I don't know how to fit this model)
 
 ## Whence uncertainty estimates?
+
+- Because there's a model in there there's also uncertainty about the by-age-year predicted counts
 
 -   You can get standard errors for your estimates/confidence intervals for the estimated conviction count/rate for each age in each year, but these seemed not to make much difference to the results from a quick look so I haven't bothered here
 
@@ -131,8 +150,11 @@ editor: visual
 -   Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)
 -   I did look into ways of quantifying how different each country's age-crime surface was (things like 2D generalizations of [Kolmogorov-Smirnov tests](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) and that sort of thing), to quantify how 'similar' the age-crime surfaces are
 -   Can frame this as either 'how similar' (continuous) or 'are they statistically significantly different from each other' (discrete)
--   Problem that the time series are different lengths (for methods like [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) at least this is a problem)?
+
+## Analysis
+-   Problem is that the time series are different lengths (for methods like [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) at least this is a problem)?
 -   Methods do exist but seem opaque to me - so I haven't bothered (yet)
+- Could compare changes within countries over time using K-S test, but not sure what value this adds over just 👀
 
 ## The lexis surface
 
@@ -158,11 +180,11 @@ editor: visual
 
 ![Age-crime ridgelines in Northern Europe](figures/acc_ridgeline.png)
 
-## Summary statistics
+## Comparing countries 6
 
-![Summary statistics](figures/summary_statistics.png)
+![Change in age-crime surface](figures/selected_years.png)
 
-## Comparing countries 5
+## Comparing countries 7
 
 ![Change in age-crime distribution from baseline](figures/acc_age_index_surface.png)
 
@@ -170,24 +192,27 @@ editor: visual
 
 ![Change in age-crime surface](figures/acc_age_index_facet.png)
 
-## Comparing countries 7
-
-![Change in age-crime surface](figures/selected_years.png)
 
 
-## Conclusions
+## Summary statistics
+
+![Summary statistics](figures/summary_statistics.png)
+
+## Discussion
 
 -   The crime drop *is* (mostly?) a youth crime drop
--   Timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent?
--   Don't see the same fall in for people at older ages
+-   Timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005)
+-   Don't see the same fall in convictions for people at older ages
 -   But only really see the increases in convictions 30s-40s in Scotland
--   So maybe you're happy if you're the 'generation sensible' people
+-   So maybe you're happy if you're the 'generation sensible' people and you think there is something particular to youth crime that has driven the crime drop?
 -   Scotland does seem like an odd fit with these comparators
 
-## Conclusions
+## Discussion
 
 -   If you believe in the invariance these about the age-crime curve, you almost lose by winning - I'd say that three of the four countries showed pretty 'classic' age-crime curves throughout the period analysed, but one didn't
 -   This is implies that there are between country differences in how the age-crime curve has changed over time
 -   But the whole point of the invariance thesis is that it's invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a *bad* thing for the invariance thesis
+
+## Discussion
 -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
--   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction
+-   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?
