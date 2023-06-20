@@ -346,15 +346,26 @@ Dr.&nbsp;Ben Matthews
 <li><p>Understandably people want to know why</p></li>
 <li><p>Explanations for the crime drop are basically all inductive, using ‘data signatures’ to speculate possible causes</p></li>
 <li><p>We can use change in the age distribution of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al.&nbsp;2016)</p></li>
-<li><p>Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983) - indeed this was part of the ‘great debate’ in developmental criminology in the 1980s</p></li>
 </ul>
 </section>
 <section id="background-1" class="slide level2">
 <h2>Background</h2>
 <ul>
+<li><p>Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)</p></li>
+<li><p>Indeed this was part of the ‘great debate’ in developmental criminology in the 1980s, between those who argued that no, the shape of the age-crime curve never substantively changed anywhere, ever and those who said that it probably did change a bit</p></li>
+</ul>
+</section>
+<section id="background-2" class="slide level2">
+<h2>Background</h2>
+<ul>
 <li><p>Some types of crime drop explanation to do with things like better security measures imply mostly period effects</p></li>
 <li><p>One the other hand, there have been falls in other ‘risky behaviours’ (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al.&nbsp;2023)</p></li>
 <li><p>“The crime drop in Scotland is a youth crime drop” (Matthews and Minton, 2017)</p></li>
+</ul>
+</section>
+<section id="background-3" class="slide level2">
+<h2>Background</h2>
+<ul>
 <li><p>Some evidence that this ‘youth crime drop’ differs in magnitude between countries (e.g.&nbsp;Matthews and Minton 2017; Farrell et al 2015; Sivertsson?), and in general there are questions about how ‘international’ the International crime drop is (Kotze 2019)</p></li>
 <li><p>But no (as far as I’m aware) systematic comparison about how the age-crime curve has changed over time</p></li>
 </ul>
@@ -364,17 +375,21 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li><p>Aim: compare changing age-crime curves across Northern Europe</p></li>
 <li><p>A lot of interesting register data analysis is in Northern Europe (because of data availability)</p></li>
-<li><p>Want to know how far we can generalize findings from these countries to areas which don’t have this kind of data availability (although this is always an empirical question)</p></li>
-<li><p>Data from national statistical agencies (except for Scotland)</p></li>
-<li><p>Problem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries</p></li>
-<li><p>Solution: use <code>Penalized Composite Link Model</code> to construct smooth age-year-conviction surfaces from publicly available data</p></li>
+<li><p>Want to know how far we can generalize findings from these countries both to each other, and ideally to areas which don’t have this kind of data availability (although this is always an empirical question)</p></li>
 </ul>
 </section>
 <section id="research-design-1" class="slide level2">
 <h2>Research Design</h2>
+<ul>
+<li><p>Problem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries</p></li>
+<li><p>Solution: use <code>Penalized Composite Link Model</code> to construct smooth age-year-conviction surfaces from publicly available data</p></li>
+</ul>
+</section>
+<section id="research-design-2" class="slide level2">
+<h2>Research Design</h2>
 
 <img data-src="resources/heuristic_data_access.png" class="r-stretch quarto-figure-center"><p class="caption">Data interestingness</p></section>
-<section id="research-design-2" class="slide level2">
+<section id="research-design-3" class="slide level2">
 <h2>Research Design</h2>
 
 <img data-src="resources/heuristic_data_access_2.png" class="r-stretch quarto-figure-center"><p class="caption">Data interestingness</p></section>
@@ -382,6 +397,7 @@ Dr.&nbsp;Ben Matthews
 <h2>Data</h2>
 <ul>
 <li><p>Conviction numbers by age for Scotland, Norway, Finland and Denmark</p></li>
+<li><p>Mostly from national statistical bureaus</p></li>
 <li><p>Also available by sex (but not analysed separately here in interested of time)</p></li>
 <li><p>Time periods covered:</p>
 <ul>
@@ -411,21 +427,24 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li>How (qualitatively) similar is the change in the ACC between countries?</li>
 <li>How much (qualitatively) does the ACC change within countries over time?</li>
-<li>Precision? No</li>
-<li>Vibes? Yes</li>
+<li>Precision? No ❌</li>
+<li>Vibes? Yes ✅</li>
 </ul>
 </section>
 <section id="measures" class="slide level2">
 <h2>Measures</h2>
 <ul>
-<li>Prevalence or incidence?</li>
+<li>Prevalence or incidence?
+<ul>
+<li>Mostly incidence I think</li>
+</ul></li>
 <li>All crime types?
 <ul>
 <li>Yes. At least this is… less controversially comparable (at least after standardizing within country?)</li>
 </ul></li>
 <li>All convictions?
 <ul>
-<li>In Norway I removed on the spot fines because that’s what SSB do</li>
+<li>In Norway I removed on the spot fines because that’s what SSB do, otherwise yes</li>
 </ul></li>
 </ul>
 </section>
@@ -510,7 +529,7 @@ Dr.&nbsp;Ben Matthews
 <section id="results" class="slide level2">
 <h2>Results</h2>
 
-<img data-src="figures/overall_conviction_trends.png" class="r-stretch quarto-figure-center"><p class="caption">trends</p></section>
+<img data-src="figures/overall_conviction_trends.png" class="r-stretch quarto-figure-center"><p class="caption">Overall conviction numbers</p></section>
 <section id="comparing-countries-1" class="slide level2">
 <h2>Comparing countries 1</h2>
 
@@ -527,20 +546,20 @@ Dr.&nbsp;Ben Matthews
 <h2>Comparing countries 4</h2>
 
 <img data-src="figures/acc_ridgeline.png" class="r-stretch quarto-figure-center"><p class="caption">Age-crime ridgelines in Northern Europe</p></section>
+<section id="comparing-countries-5" class="slide level2">
+<h2>Comparing countries 5</h2>
+
+<img data-src="figures/selected_years.png" class="r-stretch quarto-figure-center"><p class="caption">Change in standardized age-crime curves for selected years</p></section>
 <section id="comparing-countries-6" class="slide level2">
 <h2>Comparing countries 6</h2>
 
-<img data-src="figures/selected_years.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-crime surface</p></section>
+<img data-src="figures/index_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trends</p></section>
 <section id="comparing-countries-7" class="slide level2">
 <h2>Comparing countries 7</h2>
 
-<img data-src="figures/index_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trends</p></section>
+<img data-src="figures/acc_age_index_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
 <section id="comparing-countries-8" class="slide level2">
 <h2>Comparing countries 8</h2>
-
-<img data-src="figures/acc_age_index_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
-<section id="comparing-countries-9" class="slide level2">
-<h2>Comparing countries 9</h2>
 
 <img data-src="figures/acc_age_index_surface.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
 <section id="summary-statistics" class="slide level2">
@@ -577,8 +596,8 @@ Dr.&nbsp;Ben Matthews
 <h2>Thank you!</h2>
 <ul>
 <li>Any questions?</li>
-<li>The formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn <a href="https://quarto.org/">quarto</a>, which claims to be a sort of super reproducible publishing tool</li>
-<li>This is… fine, but not something I’d recommend doing under time pressure!</li>
+<li>(The formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn <a href="https://quarto.org/">quarto</a>, which claims to be a sort of super reproducible publishing tool)</li>
+<li>(This is… fine, but not something I’d recommend doing under time pressure!)</li>
 </ul>
 
 <div class="footer footer-default">

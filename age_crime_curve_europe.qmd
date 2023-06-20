@@ -17,7 +17,11 @@ editor: visual
 
 -   We can use change in the age distribution of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al. 2016)
 
--   Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983) - indeed this was part of the 'great debate' in developmental criminology in the 1980s
+## Background
+
+-   Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)
+
+- Indeed this was part of the 'great debate' in developmental criminology in the 1980s, between those who argued that no, the shape of the age-crime curve never substantively changed anywhere, ever and those who said that it probably did change a bit
 
 ## Background
 
@@ -26,6 +30,9 @@ editor: visual
 -   One the other hand, there have been falls in other 'risky behaviours' (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al. 2023)
 
 -   "The crime drop in Scotland is a youth crime drop" (Matthews and Minton, 2017)
+
+
+## Background
 
 -   Some evidence that this 'youth crime drop' differs in magnitude between countries (e.g. Matthews and Minton 2017; Farrell et al 2015; Sivertsson?), and in general there are questions about how 'international' the International crime drop is (Kotze 2019)
 
@@ -37,9 +44,9 @@ editor: visual
 
 -   A lot of interesting register data analysis is in Northern Europe (because of data availability)
 
--   Want to know how far we can generalize findings from these countries to areas which don't have this kind of data availability (although this is always an empirical question)
+-   Want to know how far we can generalize findings from these countries both to each other, and ideally to areas which don't have this kind of data availability (although this is always an empirical question)
 
--   Data from national statistical agencies (except for Scotland)
+## Research Design
 
 -   Problem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries
 
@@ -56,6 +63,7 @@ editor: visual
 ## Data
 
 -   Conviction numbers by age for Scotland, Norway, Finland and Denmark
+- Mostly from national statistical bureaus
 
 -   Also available by sex (but not analysed separately here in interested of time)
 
@@ -89,16 +97,17 @@ editor: visual
 
 -   How (qualitatively) similar is the change in the ACC between countries?
 -   How much (qualitatively) does the ACC change within countries over time?
--   Precision? No
--   Vibes? Yes
+-   Precision? No ❌
+-   Vibes? Yes ✅
 
 ## Measures
 
 -   Prevalence or incidence?
+    - Mostly incidence I think
 -   All crime types?
     -   Yes. At least this is... less controversially comparable (at least after standardizing within country?)
 -   All convictions?
-    -   In Norway I removed on the spot fines because that's what SSB do
+    -   In Norway I removed on the spot fines because that's what SSB do, otherwise yes
 
 ## Methods
 
@@ -167,7 +176,7 @@ editor: visual
 
 ## Results
 
-![trends](figures/overall_conviction_trends.png)
+![Overall conviction numbers](figures/overall_conviction_trends.png)
 
 ## Comparing countries 1
 
@@ -185,22 +194,22 @@ editor: visual
 
 ![Age-crime ridgelines in Northern Europe](figures/acc_ridgeline.png)
 
+## Comparing countries 5
+
+![Change in standardized age-crime curves for selected years](figures/selected_years.png)
+
 ## Comparing countries 6
-
-![Change in age-crime surface](figures/selected_years.png)
-
-## Comparing countries 7
 
 ![Change in age-indexed trends](figures/index_anim.gif)
 
-## Comparing countries 8
+## Comparing countries 7
 
 ![Change in age-indexed trend](figures/acc_age_index_facet.png)
 
 
 
 
-## Comparing countries 9
+## Comparing countries 8
 
 ![Change in age-indexed trend](figures/acc_age_index_surface.png)
 
@@ -232,5 +241,5 @@ editor: visual
 ## Thank you!
 
 - Any questions?
-- The formatting for this presentation is a bit odd, because I thought I'd use this as a chance to force myself to learn [quarto](https://quarto.org/), which claims to be a sort of super reproducible publishing tool
-- This is... fine, but not something I'd recommend doing under time pressure!
+- (The formatting for this presentation is a bit odd, because I thought I'd use this as a chance to force myself to learn [quarto](https://quarto.org/), which claims to be a sort of super reproducible publishing tool)
+- (This is... fine, but not something I'd recommend doing under time pressure!)

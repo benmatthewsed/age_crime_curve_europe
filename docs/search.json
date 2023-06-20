@@ -4,28 +4,42 @@
     "href": "age_crime_curve_europe.html#background",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Background",
-    "text": "Background\n\nIn lots of places there’s less crime than there used to be - this is known as the international crime drop\nUnderstandably people want to know why\nExplanations for the crime drop are basically all inductive, using ‘data signatures’ to speculate possible causes\nWe can use change in the age distribution of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al. 2016)\nChange in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983) - indeed this was part of the ‘great debate’ in developmental criminology in the 1980s"
+    "text": "Background\n\nIn lots of places there’s less crime than there used to be - this is known as the international crime drop\nUnderstandably people want to know why\nExplanations for the crime drop are basically all inductive, using ‘data signatures’ to speculate possible causes\nWe can use change in the age distribution of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al. 2016)"
   },
   {
     "objectID": "age_crime_curve_europe.html#background-1",
     "href": "age_crime_curve_europe.html#background-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Background",
-    "text": "Background\n\nSome types of crime drop explanation to do with things like better security measures imply mostly period effects\nOne the other hand, there have been falls in other ‘risky behaviours’ (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al. 2023)\n“The crime drop in Scotland is a youth crime drop” (Matthews and Minton, 2017)\nSome evidence that this ‘youth crime drop’ differs in magnitude between countries (e.g. Matthews and Minton 2017; Farrell et al 2015; Sivertsson?), and in general there are questions about how ‘international’ the International crime drop is (Kotze 2019)\nBut no (as far as I’m aware) systematic comparison about how the age-crime curve has changed over time"
+    "text": "Background\n\nChange in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)\nIndeed this was part of the ‘great debate’ in developmental criminology in the 1980s, between those who argued that no, the shape of the age-crime curve never substantively changed anywhere, ever and those who said that it probably did change a bit"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#background-2",
+    "href": "age_crime_curve_europe.html#background-2",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Background",
+    "text": "Background\n\nSome types of crime drop explanation to do with things like better security measures imply mostly period effects\nOne the other hand, there have been falls in other ‘risky behaviours’ (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al. 2023)\n“The crime drop in Scotland is a youth crime drop” (Matthews and Minton, 2017)"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#background-3",
+    "href": "age_crime_curve_europe.html#background-3",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Background",
+    "text": "Background\n\nSome evidence that this ‘youth crime drop’ differs in magnitude between countries (e.g. Matthews and Minton 2017; Farrell et al 2015; Sivertsson?), and in general there are questions about how ‘international’ the International crime drop is (Kotze 2019)\nBut no (as far as I’m aware) systematic comparison about how the age-crime curve has changed over time"
   },
   {
     "objectID": "age_crime_curve_europe.html#research-design",
     "href": "age_crime_curve_europe.html#research-design",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Research Design",
-    "text": "Research Design\n\nAim: compare changing age-crime curves across Northern Europe\nA lot of interesting register data analysis is in Northern Europe (because of data availability)\nWant to know how far we can generalize findings from these countries to areas which don’t have this kind of data availability (although this is always an empirical question)\nData from national statistical agencies (except for Scotland)\nProblem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries\nSolution: use Penalized Composite Link Model to construct smooth age-year-conviction surfaces from publicly available data"
+    "text": "Research Design\n\nAim: compare changing age-crime curves across Northern Europe\nA lot of interesting register data analysis is in Northern Europe (because of data availability)\nWant to know how far we can generalize findings from these countries both to each other, and ideally to areas which don’t have this kind of data availability (although this is always an empirical question)"
   },
   {
     "objectID": "age_crime_curve_europe.html#research-design-1",
     "href": "age_crime_curve_europe.html#research-design-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Research Design",
-    "text": "Research Design\n\nData interestingness"
+    "text": "Research Design\n\nProblem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries\nSolution: use Penalized Composite Link Model to construct smooth age-year-conviction surfaces from publicly available data"
   },
   {
     "objectID": "age_crime_curve_europe.html#research-design-2",
@@ -35,11 +49,18 @@
     "text": "Research Design\n\nData interestingness"
   },
   {
+    "objectID": "age_crime_curve_europe.html#research-design-3",
+    "href": "age_crime_curve_europe.html#research-design-3",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Research Design",
+    "text": "Research Design\n\nData interestingness"
+  },
+  {
     "objectID": "age_crime_curve_europe.html#data",
     "href": "age_crime_curve_europe.html#data",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Data",
-    "text": "Data\n\nConviction numbers by age for Scotland, Norway, Finland and Denmark\nAlso available by sex (but not analysed separately here in interested of time)\nTime periods covered:\n\nScotland: 1990-2018\nNorway: 2002-2021\nFinland: 1990-2021\nDenmark: 1980-2021\n\nNo data (that I could find) for Sweden or the Netherlands!\nThrough some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…"
+    "text": "Data\n\nConviction numbers by age for Scotland, Norway, Finland and Denmark\nMostly from national statistical bureaus\nAlso available by sex (but not analysed separately here in interested of time)\nTime periods covered:\n\nScotland: 1990-2018\nNorway: 2002-2021\nFinland: 1990-2021\nDenmark: 1980-2021\n\nNo data (that I could find) for Sweden or the Netherlands!\nThrough some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…"
   },
   {
     "objectID": "age_crime_curve_europe.html#data-1",
@@ -53,14 +74,14 @@
     "href": "age_crime_curve_europe.html#analytical-plan",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Analytical plan",
-    "text": "Analytical plan\n\nHow (qualitatively) similar is the change in the ACC between countries?\nHow much (qualitatively) does the ACC change within countries over time?\nPrecision? No\nVibes? Yes"
+    "text": "Analytical plan\n\nHow (qualitatively) similar is the change in the ACC between countries?\nHow much (qualitatively) does the ACC change within countries over time?\nPrecision? No ❌\nVibes? Yes ✅"
   },
   {
     "objectID": "age_crime_curve_europe.html#measures",
     "href": "age_crime_curve_europe.html#measures",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Measures",
-    "text": "Measures\n\nPrevalence or incidence?\nAll crime types?\n\nYes. At least this is… less controversially comparable (at least after standardizing within country?)\n\nAll convictions?\n\nIn Norway I removed on the spot fines because that’s what SSB do"
+    "text": "Measures\n\nPrevalence or incidence?\n\nMostly incidence I think\n\nAll crime types?\n\nYes. At least this is… less controversially comparable (at least after standardizing within country?)\n\nAll convictions?\n\nIn Norway I removed on the spot fines because that’s what SSB do, otherwise yes"
   },
   {
     "objectID": "age_crime_curve_europe.html#methods",
@@ -137,7 +158,7 @@
     "href": "age_crime_curve_europe.html#results",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Results",
-    "text": "Results\n\ntrends"
+    "text": "Results\n\nOverall conviction numbers"
   },
   {
     "objectID": "age_crime_curve_europe.html#comparing-countries-1",
@@ -168,18 +189,25 @@
     "text": "Comparing countries 4\n\nAge-crime ridgelines in Northern Europe"
   },
   {
+    "objectID": "age_crime_curve_europe.html#comparing-countries-5",
+    "href": "age_crime_curve_europe.html#comparing-countries-5",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "Comparing countries 5",
+    "text": "Comparing countries 5\n\nChange in standardized age-crime curves for selected years"
+  },
+  {
     "objectID": "age_crime_curve_europe.html#comparing-countries-6",
     "href": "age_crime_curve_europe.html#comparing-countries-6",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 6",
-    "text": "Comparing countries 6\n\nChange in age-crime surface"
+    "text": "Comparing countries 6\n\nChange in age-indexed trends"
   },
   {
     "objectID": "age_crime_curve_europe.html#comparing-countries-7",
     "href": "age_crime_curve_europe.html#comparing-countries-7",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 7",
-    "text": "Comparing countries 7\n\nChange in age-indexed trends"
+    "text": "Comparing countries 7\n\nChange in age-indexed trend"
   },
   {
     "objectID": "age_crime_curve_europe.html#comparing-countries-8",
@@ -187,13 +215,6 @@
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 8",
     "text": "Comparing countries 8\n\nChange in age-indexed trend"
-  },
-  {
-    "objectID": "age_crime_curve_europe.html#comparing-countries-9",
-    "href": "age_crime_curve_europe.html#comparing-countries-9",
-    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "Comparing countries 9",
-    "text": "Comparing countries 9\n\nChange in age-indexed trend"
   },
   {
     "objectID": "age_crime_curve_europe.html#summary-statistics",
@@ -228,7 +249,7 @@
     "href": "age_crime_curve_europe.html#thank-you",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Thank you!",
-    "text": "Thank you!\n\nAny questions?\nThe formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn quarto, which claims to be a sort of super reproducible publishing tool\nThis is… fine, but not something I’d recommend doing under time pressure!"
+    "text": "Thank you!\n\nAny questions?\n(The formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn quarto, which claims to be a sort of super reproducible publishing tool)\n(This is… fine, but not something I’d recommend doing under time pressure!)"
   },
   {
     "objectID": "outputs/acc_crime_drop_northern_europe.html#background",
