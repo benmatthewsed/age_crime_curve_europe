@@ -3,6 +3,7 @@ title: "The age-crime curve and the crime drop in (some of) Northern Europe"
 institute: "University of Stirling"
 author: "Dr. Ben Matthews"
 date: "2023-06-20"
+logo: "resources/primary-logo.png"
 format: revealjs
 editor: visual
 ---
@@ -21,7 +22,7 @@ editor: visual
 
 -   Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)
 
-- Indeed this was part of the 'great debate' in developmental criminology in the 1980s, between those who argued that no, the shape of the age-crime curve never substantively changed anywhere, ever and those who said that it probably did change a bit
+-   Indeed this was part of the 'great debate' in developmental criminology in the 1980s, between those who argued that no, the shape of the age-crime curve never substantively changed anywhere, ever and those who said that it probably did change a bit
 
 ## Background
 
@@ -30,7 +31,6 @@ editor: visual
 -   One the other hand, there have been falls in other 'risky behaviours' (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al. 2023)
 
 -   "The crime drop in Scotland is a youth crime drop" (Matthews and Minton, 2017)
-
 
 ## Background
 
@@ -63,7 +63,8 @@ editor: visual
 ## Data
 
 -   Conviction numbers by age for Scotland, Norway, Finland and Denmark
-- Mostly from national statistical bureaus
+
+-   Mostly from national statistical bureaus
 
 -   Also available by sex (but not analysed separately here in interested of time)
 
@@ -103,7 +104,7 @@ editor: visual
 ## Measures
 
 -   Prevalence or incidence?
-    - Mostly incidence I think
+    -   Mostly incidence I think
 -   All crime types?
     -   Yes. At least this is... less controversially comparable (at least after standardizing within country?)
 -   All convictions?
@@ -117,7 +118,7 @@ editor: visual
 
 ## Methods
 
-![Rizzi et al. 2015, Figure 1: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){width=80% fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
+![Rizzi et al. 2015, Figure 1: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){width="80%" fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
 
 ## Methods
 
@@ -127,20 +128,17 @@ editor: visual
 
 -   But you *can* look at overall trends
 
-
 ## Methods
 
 -   Parameterize conviction rates as:
-    - Rates
-    - Country-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)
-    - Country-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)
-
-
+    -   Rates
+    -   Country-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)
+    -   Country-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)
 
 ## Methods
 
-- Country-standardized is good for understanding the crime drop (between country comparisons)
-- Country-year standardized is good for understanding the age-crime curve (within country comparisons)
+-   Country-standardized is good for understanding the crime drop (between country comparisons)
+-   Country-year standardized is good for understanding the age-crime curve (within country comparisons)
 
 ## Modelling Assumptions
 
@@ -152,7 +150,7 @@ editor: visual
 
 ## Whence uncertainty estimates?
 
-- Because there's a model in there there's also uncertainty about the by-age-year predicted counts
+-   Because there's a model in there there's also uncertainty about the by-age-year predicted counts
 
 -   You can get standard errors for your estimates/confidence intervals for the estimated conviction count/rate for each age in each year, but these seemed not to make much difference to the results from a quick look so I haven't bothered here
 
@@ -166,9 +164,10 @@ editor: visual
 -   Can frame this as either 'how similar' (continuous) or 'are they statistically significantly different from each other' (discrete)
 
 ## Analysis
+
 -   Problem is that the time series are different lengths (for methods like [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) at least this is a problem)?
 -   Methods do exist but seem opaque to me - so I haven't bothered (yet)
-- Could compare changes within countries over time using K-S test, but not sure what value this adds over just 👀
+-   Could compare changes within countries over time using K-S test, but not sure what value this adds over just 👀
 
 ## The lexis surface
 
@@ -206,13 +205,9 @@ editor: visual
 
 ![Change in age-indexed trend](figures/acc_age_index_facet.png)
 
-
-
-
 ## Comparing countries 8
 
 ![Change in age-indexed trend](figures/acc_age_index_surface.png)
-
 
 ## Summary statistics
 
@@ -234,12 +229,12 @@ editor: visual
 -   But the whole point of the invariance thesis is that it's invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a *bad* thing for the invariance thesis
 
 ## Discussion
+
 -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
 -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?
 
-
 ## Thank you!
 
-- Any questions?
-- (The formatting for this presentation is a bit odd, because I thought I'd use this as a chance to force myself to learn [quarto](https://quarto.org/), which claims to be a sort of super reproducible publishing tool)
-- (This is... fine, but not something I'd recommend doing under time pressure!)
+-   Any questions?
+-   (The formatting for this presentation is a bit odd, because I thought I'd use this as a chance to force myself to learn [quarto](https://quarto.org/), which claims to be a sort of super reproducible publishing tool)
+-   (This is... fine, but not something I'd recommend doing under time pressure!)
