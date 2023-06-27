@@ -17,13 +17,13 @@ editor: visual
 
 ## Background
 
--   We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) (Kim et al. 2016)
+-   We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) [@kim2016]
 
--   Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)
+-   Change in the age-crime curve is also interesting for developmental criminologists [@hirschi1983; @farrington1986]
 
 ## Background
 
--   Some evidence that the 'youth crime drop' differs in magnitude between countries (e.g. Matthews and Minton 2017; Farrell et al 2015; Sivertsson et al 2019), and in general there are questions about how 'international' the International crime drop is (Kotze 2019)
+-   Some evidence that the 'youth crime drop' differs in magnitude between countries [@matthews2018; @sivertsson2021; @farrell2015], and in general there are questions about how 'international' the International crime drop is [@kotzé2019]
 
 -   But no (as far as I'm aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop
 
@@ -65,7 +65,7 @@ editor: visual
 
     -   Denmark: 1980-2021
 
--   No data (that I could find) for Sweden or the Netherlands! Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...
+-   No data (that I could find) for Sweden or the Netherlands!
 
 ## Data
 
@@ -115,7 +115,7 @@ editor: visual
 
 -   Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates
 
--   Used `R` implementation of Penalized Composite Link Model (PCLM) using the package [`ungroup`](https://cran.r-project.org/web/packages/ungroup/index.html)
+-   Used `R` implementation of Penalized Composite Link Model (PCLM) using the package [`ungroup`](https://cran.r-project.org/web/packages/ungroup/index.html) [@pascariu2018]
 
 -   PCLM models convictions data and population data together to estimate a smooth surface of conviction rates
 
@@ -138,10 +138,10 @@ editor: visual
 
 ## Analysis
 
--   Look at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts
+-   Look at the results visually on the Lexis surface [@minton2020] and as a series of line charts
 -   Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)
--   In the future - possibly bespoke models and visualizations for comparing Lexis surfaces (Acosta & van Raalte, 2019)?
--   Although visual analysis tends to give the same results as formal modelling (Jones, Minton and Bell, 2023)
+-   In the future - possibly bespoke models and visualizations for comparing Lexis surfaces [@acosta2019]?
+-   Although visual analysis tends to give the same results as formal modelling [@jones2023]
 
 ## The lexis surface
 
@@ -187,7 +187,11 @@ editor: visual
 
 -   The crime drop is (mostly?) a youth crime drop across the four countries
 -   And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005?)
+
+## Discussion
+
 -   But we don't see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland
+-   Increases in convictions for people around age 50 seen in Norway, Finland and Denmark are similar to results from US arrest data as reported by @farrell2015
 -   So maybe perhaps this does fit better with a youth-focused explanation for the crime drop?
 -   Scotland seems like the odd-one-out here?
 
@@ -201,17 +205,18 @@ editor: visual
 
 -   There are two directions this research could go in:
 -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
--   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction?
+-   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
 
-## Thank you! {background-image="resources/background.png"}
+## Thank you! {.smaller background-image="resources/background.png"}
 
--   Any questions?
+::: {#refs}
+:::
 
 ## Bonus content {background-image="resources/background.png"}
 
 ## Methods
 
-![Rizzi et al. 2015, Figure 1: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){width="80%" fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
+![[@rizzi2015], Figure 1: Statistical model for grouped data](resources/rizzi-2015-figure_one.png){width="80%" fig-alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth."}
 
 ## Modelling Assumptions
 

@@ -146,6 +146,33 @@ saveRDS(
              "denmark_all_model.rds")
 )
 
+
+
+
+den_fitted <- 
+  den_res$fitted |> 
+  as.data.frame() |> 
+  tibble::rownames_to_column() |> 
+  as_tibble() |> 
+  mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
+  pivot_longer(cols = `1980`:`2021`,
+               values_to = "convictions",
+               names_to = "year") |> 
+  filter(age < 60 & age >=15) |> 
+  mutate(country = "Denmark")
+
+
+saveRDS(
+  den_fitted,
+  here::here("results",
+             "denmark_fitted_acc.rds")
+)
+
+
+den_fitted |> 
+  filter(age == min(age))
+
+
 den_total <- 
 denmark_all |> 
   mutate(year = as.numeric(year)) |> 

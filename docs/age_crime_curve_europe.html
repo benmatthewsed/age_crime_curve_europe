@@ -28,6 +28,25 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -346,14 +365,14 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="background" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li><p>We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) (Kim et al.&nbsp;2016)</p></li>
-<li><p>Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)</p></li>
+<li><p>We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) <span class="citation" data-cites="kim2016">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kim, Bushway, and Tsao 2016</a>)</span></p></li>
+<li><p>Change in the age-crime curve is also interesting for developmental criminologists <span class="citation" data-cites="hirschi1983 farrington1986">(<a href="#/thank-you" role="doc-biblioref" onclick="">Hirschi and Gottfredson 1983</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrington 1986</a>)</span></p></li>
 </ul>
 </section>
 <section id="background-1" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li><p>Some evidence that the ‘youth crime drop’ differs in magnitude between countries (e.g.&nbsp;Matthews and Minton 2017; Farrell et al 2015; Sivertsson et al 2019), and in general there are questions about how ‘international’ the International crime drop is (Kotze 2019)</p></li>
+<li><p>Some evidence that the ‘youth crime drop’ differs in magnitude between countries <span class="citation" data-cites="matthews2018 sivertsson2021 farrell2015">(<a href="#/thank-you" role="doc-biblioref" onclick="">Matthews and Minton 2018</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Sivertsson, Nilsson, and Bäckman 2021</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrell, Laycock, and Tilley 2015</a>)</span>, and in general there are questions about how ‘international’ the International crime drop is <span class="citation" data-cites="kotzé2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kotzé 2019</a>)</span></p></li>
 <li><p>But no (as far as I’m aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop</p></li>
 </ul>
 </section>
@@ -392,7 +411,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <li><p>Finland: 1990-2021</p></li>
 <li><p>Denmark: 1980-2021</p></li>
 </ul></li>
-<li><p>No data (that I could find) for Sweden or the Netherlands! Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…</p></li>
+<li><p>No data (that I could find) for Sweden or the Netherlands!</p></li>
 </ul>
 </section>
 <section id="data-1" class="slide level2">
@@ -453,7 +472,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Methods</h2>
 <ul>
 <li><p>Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates</p></li>
-<li><p>Used <code>R</code> implementation of Penalized Composite Link Model (PCLM) using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a></p></li>
+<li><p>Used <code>R</code> implementation of Penalized Composite Link Model (PCLM) using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a> <span class="citation" data-cites="pascariu2018">(<a href="#/thank-you" role="doc-biblioref" onclick="">Pascariu et al. 2018</a>)</span></p></li>
 <li><p>PCLM models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
 <li><p>Means that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
 <li><p>But you <em>can</em> look at overall trends</p></li>
@@ -481,10 +500,10 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
 <ul>
-<li>Look at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts</li>
+<li>Look at the results visually on the Lexis surface <span class="citation" data-cites="minton2020">(<a href="#/thank-you" role="doc-biblioref" onclick="">Minton 2020</a>)</span> and as a series of line charts</li>
 <li>Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)</li>
-<li>In the future - possibly bespoke models and visualizations for comparing Lexis surfaces (Acosta &amp; van Raalte, 2019)?</li>
-<li>Although visual analysis tends to give the same results as formal modelling (Jones, Minton and Bell, 2023)</li>
+<li>In the future - possibly bespoke models and visualizations for comparing Lexis surfaces <span class="citation" data-cites="acosta2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Acosta and Raalte 2019</a>)</span>?</li>
+<li>Although visual analysis tends to give the same results as formal modelling <span class="citation" data-cites="jones2023">(<a href="#/thank-you" role="doc-biblioref" onclick="">Jones, Minton, and Bell 2023</a>)</span></li>
 </ul>
 </section>
 <section id="the-lexis-surface" class="slide level2">
@@ -532,12 +551,18 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <ul>
 <li>The crime drop is (mostly?) a youth crime drop across the four countries</li>
 <li>And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005?)</li>
+</ul>
+</section>
+<section id="discussion-1" class="slide level2">
+<h2>Discussion</h2>
+<ul>
 <li>But we don’t see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland</li>
+<li>Increases in convictions for people around age 50 seen in Norway, Finland and Denmark are similar to results from US arrest data as reported by <span class="citation" data-cites="farrell2015">Farrell, Laycock, and Tilley (<a href="#/thank-you" role="doc-biblioref" onclick="">2015</a>)</span></li>
 <li>So maybe perhaps this does fit better with a youth-focused explanation for the crime drop?</li>
 <li>Scotland seems like the odd-one-out here?</li>
 </ul>
 </section>
-<section id="discussion-1" class="slide level2">
+<section id="discussion-2" class="slide level2">
 <h2>Discussion</h2>
 <ul>
 <li>If you believe in the invariance these about the age-crime curve, you almost lose by winning - I’d say that three of the four countries showed pretty ‘classic’ annual age-crime curves throughout the period analysed, but one didn’t</li>
@@ -545,19 +570,54 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <li>But the whole point of the invariance thesis is that it’s invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a <em>bad</em> thing for the invariance thesis</li>
 </ul>
 </section>
-<section id="discussion-2" class="slide level2">
+<section id="discussion-3" class="slide level2">
 <h2>Discussion</h2>
 <ul>
 <li>There are two directions this research could go in:</li>
 <li>This initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data</li>
-<li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction?</li>
+<li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…)</li>
 </ul>
 </section>
-<section id="thank-you" class="slide level2" data-background-image="resources/background.png">
+<section id="thank-you" class="slide level2 smaller scrollable" data-background-image="resources/background.png">
 <h2>Thank you!</h2>
-<ul>
-<li>Any questions?</li>
-</ul>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-acosta2019" class="csl-entry" role="doc-biblioentry">
+Acosta, Enrique, and Alyson van Raalte. 2019. <span>“APC Curvature Plots: Displaying Nonlinear Age-Period-Cohort Patterns on Lexis Plots.”</span> <em>Demographic Research</em> S29 (42): 1205–34. <a href="https://doi.org/10.4054/DemRes.2019.41.42">https://doi.org/10.4054/DemRes.2019.41.42</a>.
+</div>
+<div id="ref-farrell2015" class="csl-entry" role="doc-biblioentry">
+Farrell, Graham, Gloria Laycock, and Nick Tilley. 2015. <span>“Debuts and Legacies: The Crime Drop and the Role of Adolescence-Limited and Persistent Offending.”</span> <em>Crime Science</em> 4 (1): 1–10. <a href="https://doi.org/10.1186/s40163-015-0028-3">https://doi.org/10.1186/s40163-015-0028-3</a>.
+</div>
+<div id="ref-farrington1986" class="csl-entry" role="doc-biblioentry">
+Farrington, David P. 1986. <span>“Age and Crime.”</span> <em>Crime and Justice</em> 7: 189250. <a href="http://www.journals.uchicago.edu/doi/abs/10.1086/449114">http://www.journals.uchicago.edu/doi/abs/10.1086/449114</a>.
+</div>
+<div id="ref-hirschi1983" class="csl-entry" role="doc-biblioentry">
+Hirschi, Travis, and Michael Gottfredson. 1983. <span>“Age and the Explanation of Crime.”</span> <em>American Journal of Sociology</em> 89 (3): 552584. <a href="http://www.journals.uchicago.edu/doi/abs/10.1086/227905">http://www.journals.uchicago.edu/doi/abs/10.1086/227905</a>.
+</div>
+<div id="ref-jones2023" class="csl-entry" role="doc-biblioentry">
+Jones, Phil Mike, Jon Minton, and Andrew Bell. 2023. <span>“Methods for Disentangling Period and Cohort Changes in Mortality Risk over the Twentieth Century: Comparing Graphical and Modelling Approaches.”</span> <em>Quality &amp; Quantity</em> 57 (4): 3219–39. <a href="https://doi.org/10.1007/s11135-022-01498-3">https://doi.org/10.1007/s11135-022-01498-3</a>.
+</div>
+<div id="ref-kim2016" class="csl-entry" role="doc-biblioentry">
+Kim, Jaeok, Shawn Bushway, and Hui-Shien Tsao. 2016. <span>“Identifying Classes of Explanations for Crime Drop: Period and Cohort Effects for New York State.”</span> <em>Journal of Quantitative Criminology</em> 32 (3): 357–75. <a href="https://doi.org/10.1007/s10940-015-9274-5">https://doi.org/10.1007/s10940-015-9274-5</a>.
+</div>
+<div id="ref-kotzé2019" class="csl-entry" role="doc-biblioentry">
+Kotzé, Justin. 2019. <em>The Myth of the <span>‘</span>Crime Decline<span>’</span>: Exploring Change and Continuity in Crime and Harm</em>. Routledge.
+</div>
+<div id="ref-matthews2018" class="csl-entry" role="doc-biblioentry">
+Matthews, Ben, and Jon Minton. 2018. <span>“Rethinking One of Criminology<span>’</span>s <span>‘</span>Brute Facts<span>’</span>: The Age<span></span>crime Curve and the Crime Drop in Scotland.”</span> <em>European Journal of Criminology</em> 15 (3): 296–320. <a href="https://doi.org/10.1177/1477370817731706">https://doi.org/10.1177/1477370817731706</a>.
+</div>
+<div id="ref-minton2020" class="csl-entry" role="doc-biblioentry">
+Minton, Jon. 2020. <span>“The Lexis Surface: A Tool and Workflow for Better Reasoning about Population Data.”</span> In, 4169. Routledge.
+</div>
+<div id="ref-pascariu2018" class="csl-entry" role="doc-biblioentry">
+Pascariu, Marius D., Maciej J. Dańko, Jonas Schöley, and Silvia Rizzi. 2018. <span>“‘Ungroup‘: An R Package for Efficient Estimation of Smooth Distributions from Coarsely Binned Data.”</span> <em>Journal of Open Source Software</em> 3 (29): 937. <a href="https://doi.org/10.21105/joss.00937">https://doi.org/10.21105/joss.00937</a>.
+</div>
+<div id="ref-rizzi2015" class="csl-entry" role="doc-biblioentry">
+Rizzi, Silvia, Jutta Gampe, and Paul H. C. Eilers. 2015. <span>“Efficient Estimation of Smooth Distributions from Coarsely Grouped Data.”</span> <em>American Journal of Epidemiology</em> 182 (2): 138–47. <a href="https://doi.org/10.1093/aje/kwv020">https://doi.org/10.1093/aje/kwv020</a>.
+</div>
+<div id="ref-sivertsson2021" class="csl-entry" role="doc-biblioentry">
+Sivertsson, Fredrik, Anders Nilsson, and Olof Bäckman. 2021. <span>“Participation and Frequency in Criminal Convictions Across 25 Successive Birth Cohorts: Collectivity, Polarization, or Convergence?”</span> <em>Justice Quarterly</em> 38 (6): 995–1018. <a href="https://doi.org/10.1080/07418825.2019.1699941">https://doi.org/10.1080/07418825.2019.1699941</a>.
+</div>
+</div>
 </section>
 <section id="bonus-content" class="slide level2" data-background-image="resources/background.png">
 <h2>Bonus content</h2>
@@ -565,7 +625,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="methods-3" class="slide level2">
 <h2>Methods</h2>
 
-<img data-src="resources/rizzi-2015-figure_one.png" style="width:80.0%" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption">Rizzi et al.&nbsp;2015, Figure 1: Statistical model for grouped data</p></section>
+<img data-src="resources/rizzi-2015-figure_one.png" style="width:80.0%" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="rizzi2015">(<a href="#/thank-you" role="doc-biblioref" onclick="">Rizzi, Gampe, and Eilers 2015</a>)</span>, Figure 1: Statistical model for grouped data</p></section>
 <section id="modelling-assumptions" class="slide level2">
 <h2>Modelling Assumptions</h2>
 <ul>
