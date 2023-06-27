@@ -337,37 +337,26 @@ Dr.&nbsp;Ben Matthews
     </div>
 </div>
 
-  <p class="date">6/20/23</p>
+  <p class="date">6/28/23</p>
+</section>
+<section id="before-we-begin" class="slide level2">
+<h2>Before we begin</h2>
+<ul>
+<li>This is <em>extremely</em> work-in-progress!</li>
+</ul>
 </section>
 <section id="background" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li><p>In lots of places there’s less crime than there used to be - this is known as the international crime drop</p></li>
-<li><p>Understandably people want to know why</p></li>
-<li><p>Explanations for the crime drop are basically all inductive, using ‘data signatures’ to speculate possible causes</p></li>
-<li><p>We can use change in the age distribution of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al.&nbsp;2016)</p></li>
+<li><p>We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al.&nbsp;2016)</p></li>
+<li><p>Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)</p></li>
 </ul>
 </section>
 <section id="background-1" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li><p>Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)</p></li>
-<li><p>Indeed this was part of the ‘great debate’ in developmental criminology in the 1980s, between those who argued that no, the shape of the age-crime curve never substantively changed anywhere, ever and those who said that it probably did change a bit</p></li>
-</ul>
-</section>
-<section id="background-2" class="slide level2">
-<h2>Background</h2>
-<ul>
-<li><p>Some types of crime drop explanation to do with things like better security measures imply mostly period effects</p></li>
-<li><p>One the other hand, there have been falls in other ‘risky behaviours’ (drinking, substance use, smoking, teenage pregnancy) for young people in particular, hypothesised as relating to more general aspects of youth culture/behaviour (Bell et al.&nbsp;2023)</p></li>
-<li><p>“The crime drop in Scotland is a youth crime drop” (Matthews and Minton, 2017)</p></li>
-</ul>
-</section>
-<section id="background-3" class="slide level2">
-<h2>Background</h2>
-<ul>
-<li><p>Some evidence that this ‘youth crime drop’ differs in magnitude between countries (e.g.&nbsp;Matthews and Minton 2017; Farrell et al 2015; Sivertsson?), and in general there are questions about how ‘international’ the International crime drop is (Kotze 2019)</p></li>
-<li><p>But no (as far as I’m aware) systematic comparison about how the age-crime curve has changed over time</p></li>
+<li><p>Some evidence that the ‘youth crime drop’ differs in magnitude between countries (e.g.&nbsp;Matthews and Minton 2017; Farrell et al 2015; Sivertsson et al 2019), and in general there are questions about how ‘international’ the International crime drop is (Kotze 2019)</p></li>
+<li><p>But no (as far as I’m aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop</p></li>
 </ul>
 </section>
 <section id="research-design" class="slide level2">
@@ -427,8 +416,16 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li>How (qualitatively) similar is the change in the ACC between countries?</li>
 <li>How much (qualitatively) does the ACC change within countries over time?</li>
-<li>Precision? No ❌</li>
-<li>Vibes? Yes ✅</li>
+</ul>
+</section>
+<section id="data-sources" class="slide level2">
+<h2>Data sources</h2>
+<ul>
+<li><p>Scotland: https://github.com/jamiedo/sg-age-crime</p></li>
+<li><p>Finland: <a href="https://statfin.stat.fi/PXWeb/pxweb/en/StatFin_Passiivi/StatFin_Passiivi__syyttr/">Statistics Finland</a></p></li>
+<li><p>Denmark: <a href="https://www.statbank.dk/statbank5a/selectvarval/define.asp?PLanguage=1&amp;subword=tabsel&amp;MainTable=STRAF40&amp;PXSId=167619&amp;tablestyle=&amp;ST=SD&amp;buttons=0">Statistics Denmark</a></p></li>
+<li><p>Norway: <a href="https://www.ssb.no/en/statbank/table/10623">Statistics Norway</a></p></li>
+<li><p>The same sources provided population data as well as conviction data</p></li>
 </ul>
 </section>
 <section id="measures" class="slide level2">
@@ -436,15 +433,20 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li>Prevalence or incidence?
 <ul>
-<li>Mostly incidence I think</li>
+<li>Scotland is incidence (“Convictions”), Norway is <a href="https://www.ssb.no/en/statbank/table/10623">incidence</a> (“sanctions”), Finland I think is <a href="https://pxdata.stat.fi/PxWeb/pxweb/en/StatFin/StatFin__syyttr/statfin_syyttr_pxt_12d2.px/table/tableViewLayout1/">prevalence</a> (“Convicted, number”), Denmark is <a href="https://www.statbank.dk/20338">incidence</a> (“Convictions”) - although there is a separate statistical return for prevalence!</li>
 </ul></li>
+</ul>
+</section>
+<section id="measures-1" class="slide level2">
+<h2>Measures</h2>
+<ul>
 <li>All crime types?
 <ul>
 <li>Yes. At least this is… less controversially comparable (at least after standardizing within country?)</li>
 </ul></li>
-<li>All convictions?
+<li>All sanctions?
 <ul>
-<li>In Norway I removed on the spot fines because that’s what SSB do, otherwise yes</li>
+<li>In Norway I removed on the spot fines because that’s <a href="https://www.ssb.no/en/sosiale-forhold-og-kriminalitet/kriminalitet-og-rettsvesen/statistikk/straffereaksjoner">what SSB do</a>, otherwise yes</li>
 </ul></li>
 </ul>
 </section>
@@ -453,21 +455,12 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li><p>Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates</p></li>
 <li><p>Used <code>R</code> implementation of Penalized Composite Link Model using library <code>ungroup</code></p></li>
-</ul>
-</section>
-<section id="methods-1" class="slide level2">
-<h2>Methods</h2>
-
-<img data-src="resources/rizzi-2015-figure_one.png" style="width:80.0%" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption">Rizzi et al.&nbsp;2015, Figure 1: Statistical model for grouped data</p></section>
-<section id="methods-2" class="slide level2">
-<h2>Methods</h2>
-<ul>
 <li><p>Models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
 <li><p>Means that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
 <li><p>But you <em>can</em> look at overall trends</p></li>
 </ul>
 </section>
-<section id="methods-3" class="slide level2">
+<section id="methods-1" class="slide level2">
 <h2>Methods</h2>
 <ul>
 <li>Parameterize conviction rates as:
@@ -478,31 +471,11 @@ Dr.&nbsp;Ben Matthews
 </ul></li>
 </ul>
 </section>
-<section id="methods-4" class="slide level2">
+<section id="methods-2" class="slide level2">
 <h2>Methods</h2>
 <ul>
 <li>Country-standardized is good for understanding the crime drop (between country comparisons)</li>
 <li>Country-year standardized is good for understanding the age-crime curve (within country comparisons)</li>
-</ul>
-</section>
-<section id="modelling-assumptions" class="slide level2">
-<h2>Modelling Assumptions</h2>
-<ul>
-<li>Model makes some assumptions:
-<ul>
-<li>“neighboring elements in <em>γ</em> do not differ drastically”</li>
-<li>“The smoothness assumption is implemented in a roughness penalty on the coefficients <em>β</em>”</li>
-</ul></li>
-<li>There is a penalty term <em>λ</em> and what the model does is pick the ‘best’ value of <em>λ</em> as determined by AIC</li>
-<li>This means that - in the frequentist setting - the final results are ‘optimal’ but you might be concerned about propagating uncertainty in λ through your analysis (Bayes doesn’t have this problem, but has the problem of I don’t know how to fit this model)</li>
-</ul>
-</section>
-<section id="whence-uncertainty-estimates" class="slide level2">
-<h2>Whence uncertainty estimates?</h2>
-<ul>
-<li><p>Because there’s a model in there there’s also uncertainty about the by-age-year predicted counts</p></li>
-<li><p>You can get standard errors for your estimates/confidence intervals for the estimated conviction count/rate for each age in each year, but these seemed not to make much difference to the results from a quick look so I haven’t bothered here</p></li>
-<li><p>This is because the age categories were coarse at older ages where there were also fewer convictions</p></li>
 </ul>
 </section>
 <section id="analysis" class="slide level2">
@@ -599,8 +572,36 @@ Dr.&nbsp;Ben Matthews
 <li>(The formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn <a href="https://quarto.org/">quarto</a>, which claims to be a sort of super reproducible publishing tool)</li>
 <li>(This is… fine, but not something I’d recommend doing under time pressure!)</li>
 </ul>
+</section>
+<section id="bonus-content" class="slide level2">
+<h2>Bonus content</h2>
+</section>
+<section id="methods-3" class="slide level2">
+<h2>Methods</h2>
 
-<div class="footer footer-default">
+<img data-src="resources/rizzi-2015-figure_one.png" style="width:80.0%" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption">Rizzi et al.&nbsp;2015, Figure 1: Statistical model for grouped data</p></section>
+<section id="modelling-assumptions" class="slide level2">
+<h2>Modelling Assumptions</h2>
+<ul>
+<li>Model makes some assumptions:
+<ul>
+<li>“neighboring elements in <em>γ</em> do not differ drastically”</li>
+<li>“The smoothness assumption is implemented in a roughness penalty on the coefficients <em>β</em>”</li>
+</ul></li>
+<li>There is a penalty term <em>λ</em> and what the model does is pick the ‘best’ value of <em>λ</em> as determined by AIC</li>
+<li>This means that - in the frequentist setting - the final results are ‘optimal’ but you might be concerned about propagating uncertainty in λ through your analysis (Bayes doesn’t have this problem, but has the problem of I don’t know how to fit this model)</li>
+</ul>
+</section>
+<section id="whence-uncertainty-estimates" class="slide level2">
+<h2>Whence uncertainty estimates?</h2>
+<ul>
+<li><p>Because there’s a model in there there’s also uncertainty about the by-age-year predicted counts</p></li>
+<li><p>You can get standard errors for your estimates/confidence intervals for the estimated conviction count/rate for each age in each year, but these seemed not to make much difference to the results from a quick look so I haven’t bothered here</p></li>
+<li><p>This is because the age categories were coarse at older ages where there were also fewer convictions</p></li>
+</ul>
+
+
+<img src="resources/primary-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
