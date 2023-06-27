@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.335">
 
-  <meta name="author" content="Dr.&nbsp;Ben Matthews">
+  <meta name="author" content="Dr.&nbsp;Ben Matthews | University of Stirling">
   <title>age_crime_curve_europe - The age-crime curve and the crime drop in (some of) Northern Europe</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -323,18 +323,15 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-background-image="resources/background.png" class="quarto-title-block center">
   <h1 class="title">The age-crime curve and the crime drop in (some of) Northern Europe</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Dr.&nbsp;Ben Matthews 
+Dr.&nbsp;Ben Matthews | University of Stirling 
 </div>
-        <p class="quarto-title-affiliation">
-            University of Stirling
-          </p>
-    </div>
+</div>
 </div>
 
   <p class="date">6/28/23</p>
@@ -343,12 +340,13 @@ Dr.&nbsp;Ben Matthews
 <h2>Before we begin</h2>
 <ul>
 <li>This is <em>extremely</em> work-in-progress!</li>
+<li>Any and all comments much appreciated</li>
 </ul>
 </section>
 <section id="background" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li><p>We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform effect across age?) (Kim et al.&nbsp;2016)</p></li>
+<li><p>We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) (Kim et al.&nbsp;2016)</p></li>
 <li><p>Change in the age-crime curve is also interesting for developmental criminologists (Gottfredson and Hirschi, 1990; Farrington 1983)</p></li>
 </ul>
 </section>
@@ -377,16 +375,16 @@ Dr.&nbsp;Ben Matthews
 <section id="research-design-2" class="slide level2">
 <h2>Research Design</h2>
 
-<img data-src="resources/heuristic_data_access.png" class="r-stretch quarto-figure-center"><p class="caption">Data interestingness</p></section>
+<img data-src="resources/heuristic_data_access.png" class="r-stretch"></section>
 <section id="research-design-3" class="slide level2">
 <h2>Research Design</h2>
 
-<img data-src="resources/heuristic_data_access_2.png" class="r-stretch quarto-figure-center"><p class="caption">Data interestingness</p></section>
+<img data-src="resources/heuristic_data_access_2.png" class="r-stretch"></section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <ul>
 <li><p>Total conviction numbers by age for Scotland, Norway, Finland and Denmark</p></li>
-<li><p>Also available by sex (but not analysed separately here in interested of time)</p></li>
+<li><p>Also available by sex (but not analysed separately here due to time constraints)</p></li>
 <li><p>Time periods covered:</p>
 <ul>
 <li><p>Scotland: 1990-2018</p></li>
@@ -455,8 +453,8 @@ Dr.&nbsp;Ben Matthews
 <h2>Methods</h2>
 <ul>
 <li><p>Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates</p></li>
-<li><p>Used <code>R</code> implementation of Penalized Composite Link Model using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a></p></li>
-<li><p>Models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
+<li><p>Used <code>R</code> implementation of Penalized Composite Link Model (PCLM) using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a></p></li>
+<li><p>PCLM models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
 <li><p>Means that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
 <li><p>But you <em>can</em> look at overall trends</p></li>
 </ul>
@@ -464,7 +462,7 @@ Dr.&nbsp;Ben Matthews
 <section id="methods-1" class="slide level2">
 <h2>Methods</h2>
 <ul>
-<li>Parameterize conviction rates as:
+<li>Measure conviction rates as:
 <ul>
 <li>Crude rates</li>
 <li>Country standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)</li>
@@ -477,6 +475,7 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li>Country-standardized is good for understanding the crime drop (between country comparisons)</li>
 <li>Country-year standardized is good for understanding the age-crime curve (within country comparisons)</li>
+<li>Focusing on age and year not age and cohort</li>
 </ul>
 </section>
 <section id="analysis" class="slide level2">
@@ -484,7 +483,7 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li>Look at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts</li>
 <li>Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)</li>
-<li>In the future - possibly bespoke models and visualizations for comparing Lexis surfaces (Acosta &amp; van Raalte, 2019)</li>
+<li>In the future - possibly bespoke models and visualizations for comparing Lexis surfaces (Acosta &amp; van Raalte, 2019)?</li>
 <li>Although visual analysis tends to give the same results as formal modelling (Jones, Minton and Bell, 2023)</li>
 </ul>
 </section>
@@ -531,17 +530,17 @@ Dr.&nbsp;Ben Matthews
 <section id="discussion" class="slide level2">
 <h2>Discussion</h2>
 <ul>
-<li>The crime drop <em>is</em> (mostly?) a youth crime drop across the four countries</li>
-<li>Timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005?)</li>
-<li>Don’t see the same fall in convictions for older people across countries - only really see the increases in convictions 30s-40s in Scotland</li>
+<li>The crime drop is (mostly?) a youth crime drop across the four countries</li>
+<li>And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005?)</li>
+<li>But we don’t see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland</li>
 <li>So maybe perhaps this does fit better with a youth-focused explanation for the crime drop?</li>
-<li>Scotland does seem like an odd fit with these comparators</li>
+<li>Scotland seems like the odd-one-out here?</li>
 </ul>
 </section>
 <section id="discussion-1" class="slide level2">
 <h2>Discussion</h2>
 <ul>
-<li>If you believe in the invariance these about the age-crime curve, you almost lose by winning - I’d say that three of the four countries showed pretty ‘classic’ age-crime curves throughout the period analysed, but one didn’t</li>
+<li>If you believe in the invariance these about the age-crime curve, you almost lose by winning - I’d say that three of the four countries showed pretty ‘classic’ annual age-crime curves throughout the period analysed, but one didn’t</li>
 <li>This is implies that there are between country differences in how the age-crime curve has changed over time</li>
 <li>But the whole point of the invariance thesis is that it’s invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a <em>bad</em> thing for the invariance thesis</li>
 </ul>
@@ -551,16 +550,16 @@ Dr.&nbsp;Ben Matthews
 <ul>
 <li>There are two directions this research could go in:</li>
 <li>This initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data</li>
-<li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?</li>
+<li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction?</li>
 </ul>
 </section>
-<section id="thank-you" class="slide level2">
+<section id="thank-you" class="slide level2" data-background-image="resources/background.png">
 <h2>Thank you!</h2>
 <ul>
 <li>Any questions?</li>
 </ul>
 </section>
-<section id="bonus-content" class="slide level2">
+<section id="bonus-content" class="slide level2" data-background-image="resources/background.png">
 <h2>Bonus content</h2>
 </section>
 <section id="methods-3" class="slide level2">
@@ -576,7 +575,7 @@ Dr.&nbsp;Ben Matthews
 <li>“The smoothness assumption is implemented in a roughness penalty on the coefficients <em>β</em>”</li>
 </ul></li>
 <li>There is a penalty term <em>λ</em> and what the model does is pick the ‘best’ value of <em>λ</em> as determined by AIC</li>
-<li>This means that - in the frequentist setting - the final results are ‘optimal’ but you might be concerned about propagating uncertainty in λ through your analysis (Bayes doesn’t have this problem, but has the problem of I don’t know how to fit this model)</li>
+<li>This means that - in the frequentist setting - the final results are ‘optimal’ but you might be concerned about propagating uncertainty in <em>λ</em> through your analysis</li>
 </ul>
 </section>
 <section id="whence-uncertainty-estimates" class="slide level2">
@@ -595,9 +594,18 @@ Dr.&nbsp;Ben Matthews
 <li>Problem is that the time series are different lengths (for methods like <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback-Leibler divergence</a> at least this is a problem)?</li>
 <li>Methods do exist but seem opaque to me - so I haven’t bothered (yet)</li>
 </ul>
+</section>
+<section id="cohort-results" class="slide level2">
+<h2>Cohort results</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/cohort_anim.gif"></p>
+<p></p><figcaption>Change in cohort curves</figcaption><p></p>
+</figure>
+</div>
 
-
-<img src="resources/primary-logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><img src="resources/primary-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
 </div>
 </section>
