@@ -53,7 +53,7 @@
     "href": "age_crime_curve_europe.html#data",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Data",
-    "text": "Data\n\nConviction numbers by age for Scotland, Norway, Finland and Denmark\nMostly from national statistical bureaus\nAlso available by sex (but not analysed separately here in interested of time)\nTime periods covered:\n\nScotland: 1990-2018\nNorway: 2002-2021\nFinland: 1990-2021\nDenmark: 1980-2021\n\nNo data (that I could find) for Sweden or the Netherlands!\nThrough some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…"
+    "text": "Data\n\nTotal conviction numbers by age for Scotland, Norway, Finland and Denmark\nAlso available by sex (but not analysed separately here in interested of time)\nTime periods covered:\n\nScotland: 1990-2018\nNorway: 2002-2021\nFinland: 1990-2021\nDenmark: 1980-2021\n\nNo data (that I could find) for Sweden or the Netherlands! Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…"
   },
   {
     "objectID": "age_crime_curve_europe.html#data-1",
@@ -81,28 +81,28 @@
     "href": "age_crime_curve_europe.html#measures",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Measures",
-    "text": "Measures\n\nPrevalence or incidence?\n\nScotland is incidence (“Convictions”), Norway is incidence (“sanctions”), Finland I think is prevalence (“Convicted, number”), Denmark is incidence (“Convictions”) - although there is a separate statistical return for prevalence!"
+    "text": "Measures\n\nPrevalence or incidence?\n\nScotland is incidence (“Convictions”)\nNorway is incidence (“sanctions”)\nFinland I think is prevalence (“Convicted, number”)\nDenmark is incidence (“Convictions”) - although there is a separate statistical return for prevalence!"
   },
   {
     "objectID": "age_crime_curve_europe.html#measures-1",
     "href": "age_crime_curve_europe.html#measures-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Measures",
-    "text": "Measures\n\nAll crime types?\n\nYes. At least this is… less controversially comparable (at least after standardizing within country?)\n\nAll sanctions?\n\nIn Norway I removed on the spot fines because that’s what SSB do, otherwise yes"
+    "text": "Measures\n\nAll crime types?\n\nYes. At least this is… less controversially comparable (at least after standardizing within country?)\n\nAll sanctions?\n\nIn Norway I removed on the spot fines because that’s what SSB do (and the age-crime curve looked very odd if I didn’t) otherwise yes"
   },
   {
     "objectID": "age_crime_curve_europe.html#methods",
     "href": "age_crime_curve_europe.html#methods",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Methods",
-    "text": "Methods\n\nConvert aggregated counts of convictions and population estimates into single-year estimates of conviction rates\nUsed R implementation of Penalized Composite Link Model using library ungroup\nModels convictions data and population data together to estimate a smooth surface of conviction rates\nMeans that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)\nBut you can look at overall trends"
+    "text": "Methods\n\nConvert aggregated counts of convictions and population estimates into single-year estimates of conviction rates\nUsed R implementation of Penalized Composite Link Model using the package ungroup\nModels convictions data and population data together to estimate a smooth surface of conviction rates\nMeans that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)\nBut you can look at overall trends"
   },
   {
     "objectID": "age_crime_curve_europe.html#methods-1",
     "href": "age_crime_curve_europe.html#methods-1",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Methods",
-    "text": "Methods\n\nParameterize conviction rates as:\n\nRates\nCountry-standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)\nCountry-year standardized (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)"
+    "text": "Methods\n\nParameterize conviction rates as:\n\nCrude rates\nCountry standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)\nCountry-year standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)"
   },
   {
     "objectID": "age_crime_curve_europe.html#methods-2",
@@ -116,21 +116,14 @@
     "href": "age_crime_curve_europe.html#analysis",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Analysis",
-    "text": "Analysis\n\nLook at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts\nCalculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)\nI did look into ways of quantifying how different each country’s age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how ‘similar’ the age-crime surfaces are\nCan frame this as either ‘how similar’ (continuous) or ‘are they statistically significantly different from each other’ (discrete)"
-  },
-  {
-    "objectID": "age_crime_curve_europe.html#analysis-1",
-    "href": "age_crime_curve_europe.html#analysis-1",
-    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "Analysis",
-    "text": "Analysis\n\nProblem is that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?\nMethods do exist but seem opaque to me - so I haven’t bothered (yet)\nCould compare changes within countries over time using K-S test, but not sure what value this adds over just 👀"
+    "text": "Analysis\n\nLook at the results visually on the Lexis surface (Minton 2020) and as a bunch of line charts\nCalculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)\nIn the future - possibly bespoke models and visualizations for comparing Lexis surfaces (Acosta & van Raalte, 2019)\nAlthough visual analysis tends to give the same results as formal modelling (Jones, Minton and Bell, 2023)"
   },
   {
     "objectID": "age_crime_curve_europe.html#the-lexis-surface",
     "href": "age_crime_curve_europe.html#the-lexis-surface",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "The lexis surface",
-    "text": "The lexis surface\n\nMinton 2020"
+    "text": "The lexis surface\n\nFrom Minton (2020)"
   },
   {
     "objectID": "age_crime_curve_europe.html#results",
@@ -165,21 +158,21 @@
     "href": "age_crime_curve_europe.html#comparing-countries-4",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 4",
-    "text": "Comparing countries 4\n\nAge-crime ridgelines in Northern Europe"
+    "text": "Comparing countries 4\n\nChange in standardized age-crime curves for selected years"
   },
   {
     "objectID": "age_crime_curve_europe.html#comparing-countries-5",
     "href": "age_crime_curve_europe.html#comparing-countries-5",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 5",
-    "text": "Comparing countries 5\n\nChange in standardized age-crime curves for selected years"
+    "text": "Comparing countries 5\n\nChange in age-indexed trends"
   },
   {
     "objectID": "age_crime_curve_europe.html#comparing-countries-6",
     "href": "age_crime_curve_europe.html#comparing-countries-6",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 6",
-    "text": "Comparing countries 6\n\nChange in age-indexed trends"
+    "text": "Comparing countries 6\n\nChange in age-indexed trend"
   },
   {
     "objectID": "age_crime_curve_europe.html#comparing-countries-7",
@@ -187,13 +180,6 @@
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Comparing countries 7",
     "text": "Comparing countries 7\n\nChange in age-indexed trend"
-  },
-  {
-    "objectID": "age_crime_curve_europe.html#comparing-countries-8",
-    "href": "age_crime_curve_europe.html#comparing-countries-8",
-    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
-    "section": "Comparing countries 8",
-    "text": "Comparing countries 8\n\nChange in age-indexed trend"
   },
   {
     "objectID": "age_crime_curve_europe.html#summary-statistics",
@@ -207,7 +193,7 @@
     "href": "age_crime_curve_europe.html#discussion",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Discussion",
-    "text": "Discussion\n\nThe crime drop is (mostly?) a youth crime drop\nTimings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005)\nDon’t see the same fall in convictions for older people\nBut only really see the increases in convictions 30s-40s in Scotland\nSo maybe you’re happy if you’re the ‘generation sensible’ people and you think there is something particular to youth crime that has driven the crime drop?\nScotland does seem like an odd fit with these comparators"
+    "text": "Discussion\n\nThe crime drop is (mostly?) a youth crime drop across the four countries\nTimings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent (roughly after 2005?)\nDon’t see the same fall in convictions for older people across countries - only really see the increases in convictions 30s-40s in Scotland\nSo maybe perhaps this does fit better with a youth-focused explanation for the crime drop?\nScotland does seem like an odd fit with these comparators"
   },
   {
     "objectID": "age_crime_curve_europe.html#discussion-1",
@@ -221,14 +207,14 @@
     "href": "age_crime_curve_europe.html#discussion-2",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Discussion",
-    "text": "Discussion\n\nThis initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data\nHaving done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?"
+    "text": "Discussion\n\nThere are two directions this research could go in:\nThis initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data\nHaving done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be better - and can extend this comparison to anywhere that publishes data on age and conviction?"
   },
   {
     "objectID": "age_crime_curve_europe.html#thank-you",
     "href": "age_crime_curve_europe.html#thank-you",
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Thank you!",
-    "text": "Thank you!\n\nAny questions?\n(The formatting for this presentation is a bit odd, because I thought I’d use this as a chance to force myself to learn quarto, which claims to be a sort of super reproducible publishing tool)\n(This is… fine, but not something I’d recommend doing under time pressure!)"
+    "text": "Thank you!\n\nAny questions?"
   },
   {
     "objectID": "age_crime_curve_europe.html#bonus-content",
@@ -257,6 +243,13 @@
     "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
     "section": "Whence uncertainty estimates?",
     "text": "Whence uncertainty estimates?\n\nBecause there’s a model in there there’s also uncertainty about the by-age-year predicted counts\nYou can get standard errors for your estimates/confidence intervals for the estimated conviction count/rate for each age in each year, but these seemed not to make much difference to the results from a quick look so I haven’t bothered here\nThis is because the age categories were coarse at older ages where there were also fewer convictions"
+  },
+  {
+    "objectID": "age_crime_curve_europe.html#what-if-i-want-to-quantify-how-different-age-crime-surfaces-are",
+    "href": "age_crime_curve_europe.html#what-if-i-want-to-quantify-how-different-age-crime-surfaces-are",
+    "title": "The age-crime curve and the crime drop in (some of) Northern Europe",
+    "section": "What if I want to quantify how different age-crime surfaces are?",
+    "text": "What if I want to quantify how different age-crime surfaces are?\n\nI did look into ways of quantifying how different each country’s age-crime surface was (things like 2D generalizations of Kolmogorov-Smirnov tests and that sort of thing), to quantify how ‘similar’ the age-crime surfaces are\nCan frame this as either ‘how similar’ (continuous) or ‘are they statistically significantly different from each other’ (discrete)\nProblem is that the time series are different lengths (for methods like Kullback-Leibler divergence at least this is a problem)?\nMethods do exist but seem opaque to me - so I haven’t bothered (yet)"
   },
   {
     "objectID": "outputs/acc_crime_drop_northern_europe.html#background",
