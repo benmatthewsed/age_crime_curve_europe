@@ -166,11 +166,11 @@ editor: visual
 -   I'd say that three of the four countries showed pretty 'classic' annual age-crime curves throughout the period analysed, but one didn't
 -   This is implies that there are pretty stark between country differences in how the age-crime curve has changed over time?
 
-## Discussion
+## Where next?
 
 -   I think there are two directions this research could go in:
     -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
-    -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable, with the aim of giving international context to register-data based studies from Northern Europe - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
+    -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
 
 ## Thank you! {.smaller background-image="resources/background.png"}
 
