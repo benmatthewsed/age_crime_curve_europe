@@ -373,7 +373,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Background</h2>
 <ul>
 <li><p>Some evidence that the ‘youth crime drop’ differs in magnitude between countries <span class="citation" data-cites="matthews2018 sivertsson2021 farrell2015">(<a href="#/thank-you" role="doc-biblioref" onclick="">Matthews and Minton 2018</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Sivertsson, Nilsson, and Bäckman 2021</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrell, Laycock, and Tilley 2015</a>)</span></p></li>
-<li><p>But in general there are questions about how exactly ‘international’ the International crime drop is <span class="citation" data-cites="kotzé2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kotzé 2019</a>)</span></p></li>
+<li><p>But in general there are questions about how exactly ‘international’ the international crime drop is <span class="citation" data-cites="kotzé2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kotzé 2019</a>)</span></p></li>
 <li><p>But no (as far as I’m aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop</p></li>
 </ul>
 </section>
@@ -473,8 +473,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Methods</h2>
 <ul>
 <li><p>Used <code>R</code> implementation of Penalized Composite Link Model (PCLM) using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a> <span class="citation" data-cites="pascariu2018">(<a href="#/thank-you" role="doc-biblioref" onclick="">Pascariu et al. 2018</a>)</span></p></li>
-<li><p>PCLM models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
-<li><p>Means that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
+<li><p>PCLM models convictions data and population data together to estimate a smooth surface of conviction rates, so you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
 <li><p>But you <em>can</em> look at overall trends</p></li>
 </ul>
 </section>
@@ -492,7 +491,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
 <ul>
-<li>Look at the results visually on the Lexis surface <span class="citation" data-cites="minton2020">(<a href="#/thank-you" role="doc-biblioref" onclick="">Minton 2020</a>)</span> and as a series of line charts</li>
+<li>Look at the results visually as a series of line charts and on the Lexis surface <span class="citation" data-cites="minton2020">(<a href="#/thank-you" role="doc-biblioref" onclick="">Minton 2020</a>)</span></li>
 <li>Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)</li>
 <li>In the future - possibly bespoke models and visualizations for comparing Lexis surfaces <span class="citation" data-cites="acosta2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Acosta and Raalte 2019</a>)</span>?</li>
 <li>Although visual analysis tends to give the same results as formal modelling <span class="citation" data-cites="jones2023">(<a href="#/thank-you" role="doc-biblioref" onclick="">Jones, Minton, and Bell 2023</a>)</span></li>
@@ -549,7 +548,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="discussion-2" class="slide level2">
 <h2>Discussion</h2>
 <ul>
-<li>If you believe in the invariance these about the age-crime curve, you almost lose by winning - I’d say that three of the four countries showed pretty ‘classic’ annual age-crime curves throughout the period analysed, but one didn’t</li>
+<li>If you believe in the invariance thesis about the age-crime curve, you almost lose by winning - I’d say that three of the four countries showed pretty ‘classic’ annual age-crime curves throughout the period analysed, but one didn’t</li>
 <li>This is implies that there are between country differences in how the age-crime curve has changed over time</li>
 <li>But the whole point of the invariance thesis is that it’s invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a <em>bad</em> thing for the invariance thesis</li>
 </ul>
@@ -557,10 +556,10 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="discussion-3" class="slide level2">
 <h2>Discussion</h2>
 <ul>
-<li>There are two directions this research could go in:
+<li>I think there are two directions this research could go in:
 <ul>
 <li>This initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data</li>
-<li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…)</li>
+<li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable, with the aim of giving international context to register-data based studies from Northern Europe - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…)</li>
 </ul></li>
 </ul>
 </section>

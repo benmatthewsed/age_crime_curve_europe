@@ -25,7 +25,7 @@ editor: visual
 
 -   Some evidence that the 'youth crime drop' differs in magnitude between countries [@matthews2018; @sivertsson2021; @farrell2015]
 
-- But in general there are questions about how exactly 'international' the International crime drop is [@kotzé2019]
+- But in general there are questions about how exactly 'international' the international crime drop is [@kotzé2019]
 
 -   But no (as far as I'm aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop
 
@@ -183,15 +183,15 @@ editor: visual
 
 ## Discussion
 
--   If you believe in the invariance these about the age-crime curve, you almost lose by winning - I'd say that three of the four countries showed pretty 'classic' annual age-crime curves throughout the period analysed, but one didn't
+-   If you believe in the invariance thesis about the age-crime curve, you almost lose by winning - I'd say that three of the four countries showed pretty 'classic' annual age-crime curves throughout the period analysed, but one didn't
 -   This is implies that there are between country differences in how the age-crime curve has changed over time
 -   But the whole point of the invariance thesis is that it's invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a *bad* thing for the invariance thesis
 
 ## Discussion
 
--   There are two directions this research could go in:
+-   I think there are two directions this research could go in:
     -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
-    -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
+    -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable, with the aim of giving international context to register-data based studies from Northern Europe - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
 
 ## Thank you! {.smaller background-image="resources/background.png"}
 
