@@ -366,7 +366,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Background</h2>
 <ul>
 <li><p>We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) <span class="citation" data-cites="kim2016">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kim, Bushway, and Tsao 2016</a>)</span></p></li>
-<li><p>Change in the age-crime curve is also interesting for developmental criminologists <span class="citation" data-cites="hirschi1983 farrington1986">(<a href="#/thank-you" role="doc-biblioref" onclick="">Hirschi and Gottfredson 1983</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrington 1986</a>)</span></p></li>
+<li><p>Change in the age-crime curve (e.g.&nbsp;the debate over the ‘invariance’ of the shape of the age-crime curve) is also interesting for developmental criminologists <span class="citation" data-cites="hirschi1983 farrington1986">(<a href="#/thank-you" role="doc-biblioref" onclick="">Hirschi and Gottfredson 1983</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrington 1986</a>)</span></p></li>
 </ul>
 </section>
 <section id="background-1" class="slide level2">
@@ -381,8 +381,9 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Research Design</h2>
 <ul>
 <li><p>Aim: compare changing age-crime curves across Northern Europe</p></li>
-<li><p>A lot of interesting register data analysis is in Northern Europe (because of data availability)</p></li>
-<li><p>In the future - possibly extend this analysis to include other countries to help understand how far we can generalize findings from these countries</p></li>
+<li><p>Why Northern Europe? Basically data availability</p></li>
+<li><p>In the future - possibly extend this analysis to include other countries where data are available</p></li>
+<li><p>Expanding the international scope could help contextualize other findings from studies using register data?</p></li>
 </ul>
 </section>
 <section id="research-design-1" class="slide level2">
@@ -392,14 +393,6 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <li><p>Solution: use <code>Penalized Composite Link Model</code> to construct smooth age-year-conviction surfaces from publicly available data</p></li>
 </ul>
 </section>
-<section id="research-design-2" class="slide level2">
-<h2>Research Design</h2>
-
-<img data-src="resources/heuristic_data_access.png" class="r-stretch"></section>
-<section id="research-design-3" class="slide level2">
-<h2>Research Design</h2>
-
-<img data-src="resources/heuristic_data_access_2.png" class="r-stretch"></section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <ul>
@@ -427,17 +420,10 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 </ul></li>
 </ul>
 </section>
-<section id="analytical-plan" class="slide level2">
-<h2>Analytical plan</h2>
-<ul>
-<li>How (qualitatively) similar is the change in the age-crime curve between countries?</li>
-<li>How much (qualitatively) does the age-crime curve change within countries over time?</li>
-</ul>
-</section>
 <section id="data-sources" class="slide level2">
 <h2>Data sources</h2>
 <ul>
-<li><p>Scotland: https://github.com/jamiedo/sg-age-crime</p></li>
+<li><p>Scotland: <a href="https://github.com/jamiedo/sg-age-crime">Data behind an interactive web app</a></p></li>
 <li><p>Finland: <a href="https://statfin.stat.fi/PXWeb/pxweb/en/StatFin_Passiivi/StatFin_Passiivi__syyttr/">Statistics Finland</a></p></li>
 <li><p>Denmark: <a href="https://www.statbank.dk/statbank5a/selectvarval/define.asp?PLanguage=1&amp;subword=tabsel&amp;MainTable=STRAF40&amp;PXSId=167619&amp;tablestyle=&amp;ST=SD&amp;buttons=0">Statistics Denmark</a></p></li>
 <li><p>Norway: <a href="https://www.ssb.no/en/statbank/table/10623">Statistics Norway</a></p></li>
@@ -447,7 +433,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="measures" class="slide level2">
 <h2>Measures</h2>
 <ul>
-<li>Prevalence or incidence?
+<li>Prevalence (people convicted) or incidence (total convictions)?
 <ul>
 <li>Scotland is incidence (“Convictions”)</li>
 <li>Norway is <a href="https://www.ssb.no/en/statbank/table/10623">incidence</a> (“sanctions”)</li>
@@ -465,7 +451,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 </ul></li>
 <li>All sanctions?
 <ul>
-<li>In Norway I removed on the spot fines because that’s <a href="https://www.ssb.no/en/sosiale-forhold-og-kriminalitet/kriminalitet-og-rettsvesen/statistikk/straffereaksjoner">what SSB do</a> (and the age-crime curve looked very odd if I didn’t) otherwise yes</li>
+<li>In Norway I removed on the spot fines because that’s <a href="https://www.ssb.no/en/sosiale-forhold-og-kriminalitet/kriminalitet-og-rettsvesen/statistikk/straffereaksjoner">what SSB (sometimes?) do</a> (and the age-crime curve looked very odd if I didn’t) otherwise yes</li>
 </ul></li>
 </ul>
 </section>
@@ -473,7 +459,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Methods</h2>
 <ul>
 <li><p>Used <code>R</code> implementation of Penalized Composite Link Model (PCLM) using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a> <span class="citation" data-cites="pascariu2018">(<a href="#/thank-you" role="doc-biblioref" onclick="">Pascariu et al. 2018</a>)</span></p></li>
-<li><p>PCLM models convictions data and population data together to estimate a smooth surface of conviction rates, so you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
+<li><p>Because PCLM models convictions data and population data together to estimate a smooth surface of conviction rates, so you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
 <li><p>But you <em>can</em> look at overall trends</p></li>
 </ul>
 </section>
@@ -488,11 +474,18 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 </ul></li>
 </ul>
 </section>
-<section id="analysis" class="slide level2">
-<h2>Analysis</h2>
+<section id="research-questions" class="slide level2">
+<h2>Research questions</h2>
+<ul>
+<li>How (qualitatively) similar is the change in the age-crime curve between countries?</li>
+<li>How much (qualitatively) does the age-crime curve change within countries over time?</li>
+</ul>
+</section>
+<section id="analytical-plan" class="slide level2">
+<h2>Analytical plan</h2>
 <ul>
 <li>Look at the results visually as a series of line charts and on the Lexis surface <span class="citation" data-cites="minton2020">(<a href="#/thank-you" role="doc-biblioref" onclick="">Minton 2020</a>)</span></li>
-<li>Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)</li>
+<li>Calculate relevant summary statistics (mode, median, mean age of conviction)</li>
 <li>In the future - possibly bespoke models and visualizations for comparing Lexis surfaces <span class="citation" data-cites="acosta2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Acosta and Raalte 2019</a>)</span>?</li>
 <li>Although visual analysis tends to give the same results as formal modelling <span class="citation" data-cites="jones2023">(<a href="#/thank-you" role="doc-biblioref" onclick="">Jones, Minton, and Bell 2023</a>)</span></li>
 </ul>
@@ -517,14 +510,6 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Comparing countries 4</h2>
 
 <img data-src="figures/selected_years.png" class="r-stretch quarto-figure-center"><p class="caption">Change in standardized age-crime curves for selected years</p></section>
-<section id="comparing-countries-5" class="slide level2">
-<h2>Comparing countries 5</h2>
-
-<img data-src="figures/index_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trends</p></section>
-<section id="comparing-countries-6" class="slide level2">
-<h2>Comparing countries 6</h2>
-
-<img data-src="figures/acc_age_index_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
 <section id="summary-statistics" class="slide level2">
 <h2>Summary statistics</h2>
 
@@ -533,24 +518,22 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Discussion</h2>
 <ul>
 <li>The crime drop is (mostly?) a youth crime drop across the four countries</li>
-<li>And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005?)</li>
+<li>And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005ish?)</li>
 </ul>
 </section>
 <section id="discussion-1" class="slide level2">
 <h2>Discussion</h2>
 <ul>
 <li>But we don’t see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland</li>
-<li>Increases in convictions for people around age 50 seen in Norway, Finland and Denmark are similar to results from US arrest data as reported by <span class="citation" data-cites="farrell2015">Farrell, Laycock, and Tilley (<a href="#/thank-you" role="doc-biblioref" onclick="">2015</a>)</span></li>
-<li>So perhaps this does fit better with a youth-focused explanation for the crime drop?</li>
-<li>Scotland seems like the odd-one-out here?</li>
+<li>Increases in convictions for people around age 50 seen in Norway and Denmark are similar to results from US arrest data as reported by <span class="citation" data-cites="farrell2015">Farrell, Laycock, and Tilley (<a href="#/thank-you" role="doc-biblioref" onclick="">2015</a>)</span></li>
+<li>So perhaps this does fit better with a youth-focused explanation for the crime drop e.g. <span class="citation" data-cites="ball2023">(<a href="#/thank-you" role="doc-biblioref" onclick="">Ball et al. 2023</a>)</span></li>
 </ul>
 </section>
 <section id="discussion-2" class="slide level2">
 <h2>Discussion</h2>
 <ul>
-<li>If you believe in the invariance thesis about the age-crime curve, you almost lose by winning - I’d say that three of the four countries showed pretty ‘classic’ annual age-crime curves throughout the period analysed, but one didn’t</li>
-<li>This is implies that there are between country differences in how the age-crime curve has changed over time</li>
-<li>But the whole point of the invariance thesis is that it’s invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a <em>bad</em> thing for the invariance thesis</li>
+<li>I’d say that three of the four countries showed pretty ‘classic’ annual age-crime curves throughout the period analysed, but one didn’t</li>
+<li>This is implies that there are pretty stark between country differences in how the age-crime curve has changed over time?</li>
 </ul>
 </section>
 <section id="discussion-3" class="slide level2">
@@ -568,6 +551,9 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-acosta2019" class="csl-entry" role="doc-biblioentry">
 Acosta, Enrique, and Alyson van Raalte. 2019. <span>“APC Curvature Plots: Displaying Nonlinear Age-Period-Cohort Patterns on Lexis Plots.”</span> <em>Demographic Research</em> S29 (42): 1205–34. <a href="https://doi.org/10.4054/DemRes.2019.41.42">https://doi.org/10.4054/DemRes.2019.41.42</a>.
+</div>
+<div id="ref-ball2023" class="csl-entry" role="doc-biblioentry">
+Ball, Jude, Richard Grucza, Michael Livingston, Tom ter Bogt, Candace Currie, and Margaretha de Looze. 2023. <span>“The Great Decline in Adolescent Risk Behaviours: Unitary Trend, Separate Trends, or Cascade?”</span> <em>Social Science &amp; Medicine</em> 317: 115616. https://doi.org/<a href="https://doi.org/10.1016/j.socscimed.2022.115616">https://doi.org/10.1016/j.socscimed.2022.115616</a>.
 </div>
 <div id="ref-farrell2015" class="csl-entry" role="doc-biblioentry">
 Farrell, Graham, Gloria Laycock, and Nick Tilley. 2015. <span>“Debuts and Legacies: The Crime Drop and the Role of Adolescence-Limited and Persistent Offending.”</span> <em>Crime Science</em> 4 (1): 1–10. <a href="https://doi.org/10.1186/s40163-015-0028-3">https://doi.org/10.1186/s40163-015-0028-3</a>.
@@ -648,6 +634,14 @@ Sivertsson, Fredrik, Anders Nilsson, and Olof Bäckman. 2021. <span>“Participa
 <h2>Cohort results</h2>
 
 <img data-src="figures/cohort_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Change in cohort curves</p></section>
+<section id="comparing-countries-5" class="slide level2">
+<h2>Comparing countries 5</h2>
+
+<img data-src="figures/index_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trends</p></section>
+<section id="comparing-countries-6" class="slide level2">
+<h2>Comparing countries 6</h2>
+
+<img data-src="figures/acc_age_index_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
 <section id="comparing-countries-7" class="slide level2">
 <h2>Comparing countries 7</h2>
 <div class="quarto-figure quarto-figure-center">

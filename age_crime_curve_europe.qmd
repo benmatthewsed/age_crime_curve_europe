@@ -19,13 +19,13 @@ editor: visual
 
 -   We can analyse change in the demographics of crime to refine theories of the crime drop, some explanations for the crime drop fit better with period effects (implying a reasonably uniform change across age?) [@kim2016]
 
--   Change in the age-crime curve is also interesting for developmental criminologists [@hirschi1983; @farrington1986]
+-   Change in the age-crime curve (e.g. the debate over the 'invariance' of the shape of the age-crime curve) is also interesting for developmental criminologists [@hirschi1983; @farrington1986]
 
 ## Background
 
 -   Some evidence that the 'youth crime drop' differs in magnitude between countries [@matthews2018; @sivertsson2021; @farrell2015]
 
-- But in general there are questions about how exactly 'international' the international crime drop is [@kotzé2019]
+-   But in general there are questions about how exactly 'international' the international crime drop is [@kotzé2019]
 
 -   But no (as far as I'm aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop
 
@@ -33,23 +33,17 @@ editor: visual
 
 -   Aim: compare changing age-crime curves across Northern Europe
 
--   A lot of interesting register data analysis is in Northern Europe (because of data availability)
+-   Why Northern Europe? Basically data availability
 
--   In the future - possibly extend this analysis to include other countries to help understand how far we can generalize findings from these countries 
+-   In the future - possibly extend this analysis to include other countries where data are available
+
+-   Expanding the international scope could help contextualize other findings from studies using register data?
 
 ## Research Design
 
 -   Problem: little data available at year-of-age level, no guarantee that the same age-groups are used in different countries
 
 -   Solution: use `Penalized Composite Link Model` to construct smooth age-year-conviction surfaces from publicly available data
-
-## Research Design
-
-![](resources/heuristic_data_access.png)
-
-## Research Design
-
-![](resources/heuristic_data_access_2.png)
 
 ## Data
 
@@ -81,14 +75,9 @@ editor: visual
 
     -   Denmark: 15-24 single year of age; 25-29; 30-39; 40-49; 50-59; 60-69; 70-79; \>=80
 
-## Analytical plan
-
--   How (qualitatively) similar is the change in the age-crime curve between countries?
--   How much (qualitatively) does the age-crime curve change within countries over time?
-
 ## Data sources
 
--   Scotland: https://github.com/jamiedo/sg-age-crime
+-   Scotland: [Data behind an interactive web app](https://github.com/jamiedo/sg-age-crime)
 
 -   Finland: [Statistics Finland](https://statfin.stat.fi/PXWeb/pxweb/en/StatFin_Passiivi/StatFin_Passiivi__syyttr/)
 
@@ -100,7 +89,7 @@ editor: visual
 
 ## Measures
 
--   Prevalence or incidence?
+-   Prevalence (people convicted) or incidence (total convictions)?
     -   Scotland is incidence ("Convictions")
     -   Norway is [incidence](https://www.ssb.no/en/statbank/table/10623) ("sanctions")
     -   Finland I think is [prevalence](https://pxdata.stat.fi/PxWeb/pxweb/en/StatFin/StatFin__syyttr/statfin_syyttr_pxt_12d2.px/table/tableViewLayout1/) ("Convicted, number")
@@ -111,13 +100,13 @@ editor: visual
 -   All crime types?
     -   Yes. At least this is... less controversially comparable (at least after standardizing within country?)
 -   All sanctions?
-    -   In Norway I removed on the spot fines because that's [what SSB do](https://www.ssb.no/en/sosiale-forhold-og-kriminalitet/kriminalitet-og-rettsvesen/statistikk/straffereaksjoner) (and the age-crime curve looked very odd if I didn't) otherwise yes
+    -   In Norway I removed on the spot fines because that's [what SSB (sometimes?) do](https://www.ssb.no/en/sosiale-forhold-og-kriminalitet/kriminalitet-og-rettsvesen/statistikk/straffereaksjoner) (and the age-crime curve looked very odd if I didn't) otherwise yes
 
 ## Methods
 
 -   Used `R` implementation of Penalized Composite Link Model (PCLM) using the package [`ungroup`](https://cran.r-project.org/web/packages/ungroup/index.html) [@pascariu2018]
 
--   PCLM models convictions data and population data together to estimate a smooth surface of conviction rates, so you probably shouldn't look for disruptions in the time series (policy shocks or what have you)
+-   Because PCLM models convictions data and population data together to estimate a smooth surface of conviction rates, so you probably shouldn't look for disruptions in the time series (policy shocks or what have you)
 
 -   But you *can* look at overall trends
 
@@ -128,14 +117,17 @@ editor: visual
     -   Country standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)
     -   Country-year standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)
 
-## Analysis
+## Research questions
+
+-   How (qualitatively) similar is the change in the age-crime curve between countries?
+-   How much (qualitatively) does the age-crime curve change within countries over time?
+
+## Analytical plan
 
 -   Look at the results visually as a series of line charts and on the Lexis surface [@minton2020]
--   Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)
+-   Calculate relevant summary statistics (mode, median, mean age of conviction)
 -   In the future - possibly bespoke models and visualizations for comparing Lexis surfaces [@acosta2019]?
 -   Although visual analysis tends to give the same results as formal modelling [@jones2023]
-
-
 
 ## Results
 
@@ -157,14 +149,6 @@ editor: visual
 
 ![Change in standardized age-crime curves for selected years](figures/selected_years.png)
 
-## Comparing countries 5
-
-![Change in age-indexed trends](figures/index_anim.gif)
-
-## Comparing countries 6
-
-![Change in age-indexed trend](figures/acc_age_index_facet.png)
-
 ## Summary statistics
 
 ![Summary statistics](figures/summary_statistics.png)
@@ -172,20 +156,18 @@ editor: visual
 ## Discussion
 
 -   The crime drop is (mostly?) a youth crime drop across the four countries
--   And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005?)
+-   And the timings of biggest falls in youth convictions (cohorts born around 1990ish) are pretty consistent across the four countries (roughly after 2005ish?)
 
 ## Discussion
 
 -   But we don't see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland
--   Increases in convictions for people around age 50 seen in Norway, Finland and Denmark are similar to results from US arrest data as reported by @farrell2015
--   So perhaps this does fit better with a youth-focused explanation for the crime drop?
--   Scotland seems like the odd-one-out here?
+-   Increases in convictions for people around age 50 seen in Norway and Denmark are similar to results from US arrest data as reported by @farrell2015
+-   So perhaps this does fit better with a youth-focused explanation for the crime drop e.g. [@ball2023]
 
 ## Discussion
 
--   If you believe in the invariance thesis about the age-crime curve, you almost lose by winning - I'd say that three of the four countries showed pretty 'classic' annual age-crime curves throughout the period analysed, but one didn't
--   This is implies that there are between country differences in how the age-crime curve has changed over time
--   But the whole point of the invariance thesis is that it's invariance across time and place - so the fact that the change in the age-crime curve in Scotland seems very different than in Denmark, Finland and Norway is (I would argue) a *bad* thing for the invariance thesis
+-   I'd say that three of the four countries showed pretty 'classic' annual age-crime curves throughout the period analysed, but one didn't
+-   This is implies that there are pretty stark between country differences in how the age-crime curve has changed over time?
 
 ## Discussion
 
@@ -234,6 +216,14 @@ editor: visual
 ## Cohort results
 
 ![Change in cohort curves](figures/cohort_anim.gif)
+
+## Comparing countries 5
+
+![Change in age-indexed trends](figures/index_anim.gif)
+
+## Comparing countries 6
+
+![Change in age-indexed trend](figures/acc_age_index_facet.png)
 
 ## Comparing countries 7
 
