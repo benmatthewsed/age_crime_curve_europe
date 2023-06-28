@@ -36,3 +36,16 @@ left_join(dat_ages, demog_data |> mutate(age = as.numeric(age))) |>
   rename(age = age_group)
 
 }
+
+
+
+
+ks_test <- function(data, data2){
+  
+  tmp <-  stats::ks.test(data$convictions,
+                         data2$convictions)
+  
+  tibble(p.value = tmp$p.value,
+         statistic = tmp$statistic)
+  
+}

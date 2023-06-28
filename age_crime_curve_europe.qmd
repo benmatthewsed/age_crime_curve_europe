@@ -23,7 +23,9 @@ editor: visual
 
 ## Background
 
--   Some evidence that the 'youth crime drop' differs in magnitude between countries [@matthews2018; @sivertsson2021; @farrell2015], and in general there are questions about how 'international' the International crime drop is [@kotzé2019]
+-   Some evidence that the 'youth crime drop' differs in magnitude between countries [@matthews2018; @sivertsson2021; @farrell2015]
+
+- But in general there are questions about how exactly 'international' the International crime drop is [@kotzé2019]
 
 -   But no (as far as I'm aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop
 
@@ -33,7 +35,7 @@ editor: visual
 
 -   A lot of interesting register data analysis is in Northern Europe (because of data availability)
 
--   Want to know how far we can generalize findings from these countries both to each other, and ideally to areas which don't have this kind of data availability (although this is always an empirical question)
+-   In the future - possibly extend this analysis to include other countries to help understand how far we can generalize findings from these countries 
 
 ## Research Design
 
@@ -81,8 +83,8 @@ editor: visual
 
 ## Analytical plan
 
--   How (qualitatively) similar is the change in the ACC between countries?
--   How much (qualitatively) does the ACC change within countries over time?
+-   How (qualitatively) similar is the change in the age-crime curve between countries?
+-   How much (qualitatively) does the age-crime curve change within countries over time?
 
 ## Data sources
 
@@ -113,13 +115,9 @@ editor: visual
 
 ## Methods
 
--   Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates
-
 -   Used `R` implementation of Penalized Composite Link Model (PCLM) using the package [`ungroup`](https://cran.r-project.org/web/packages/ungroup/index.html) [@pascariu2018]
 
--   PCLM models convictions data and population data together to estimate a smooth surface of conviction rates
-
--   Means that you probably shouldn't look for disruptions in the time series (policy shocks or what have you)
+-   PCLM models convictions data and population data together to estimate a smooth surface of conviction rates, so you probably shouldn't look for disruptions in the time series (policy shocks or what have you)
 
 -   But you *can* look at overall trends
 
@@ -130,22 +128,14 @@ editor: visual
     -   Country standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country)
     -   Country-year standardized rates (divide the conviction rate for each age-year by the maximum single-age conviction rate for that country in that year)
 
-## Methods
-
--   Country-standardized is good for understanding the crime drop (between country comparisons)
--   Country-year standardized is good for understanding the age-crime curve (within country comparisons)
--   Focusing on age and year not age and cohort
-
 ## Analysis
 
--   Look at the results visually on the Lexis surface [@minton2020] and as a series of line charts
+-   Look at the results visually as a series of line charts and on the Lexis surface [@minton2020]
 -   Calculate relevant summary statistics (mode, median, mean, could also do skew, kurtosis)
 -   In the future - possibly bespoke models and visualizations for comparing Lexis surfaces [@acosta2019]?
 -   Although visual analysis tends to give the same results as formal modelling [@jones2023]
 
-## The lexis surface
 
-![From Minton (2020)](resources/minton_2020_lexis.png)
 
 ## Results
 
@@ -175,10 +165,6 @@ editor: visual
 
 ![Change in age-indexed trend](figures/acc_age_index_facet.png)
 
-## Comparing countries 7
-
-![Change in age-indexed trend](figures/acc_age_index_surface.png)
-
 ## Summary statistics
 
 ![Summary statistics](figures/summary_statistics.png)
@@ -192,7 +178,7 @@ editor: visual
 
 -   But we don't see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland
 -   Increases in convictions for people around age 50 seen in Norway, Finland and Denmark are similar to results from US arrest data as reported by @farrell2015
--   So maybe perhaps this does fit better with a youth-focused explanation for the crime drop?
+-   So perhaps this does fit better with a youth-focused explanation for the crime drop?
 -   Scotland seems like the odd-one-out here?
 
 ## Discussion
@@ -204,8 +190,8 @@ editor: visual
 ## Discussion
 
 -   There are two directions this research could go in:
--   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
--   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
+    -   This initial analysis raises lots of questions about... crime types, other demographics (gender, ethnicity, income... etc) that could be answered by more bespoke data
+    -   Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea...)
 
 ## Thank you! {.smaller background-image="resources/background.png"}
 
@@ -241,6 +227,14 @@ editor: visual
 -   Problem is that the time series are different lengths (for methods like [Kullback-Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) at least this is a problem)?
 -   Methods do exist but seem opaque to me - so I haven't bothered (yet)
 
+## The lexis surface
+
+![From Minton (2020)](resources/minton_2020_lexis.png)
+
 ## Cohort results
 
 ![Change in cohort curves](figures/cohort_anim.gif)
+
+## Comparing countries 7
+
+![Change in age-indexed trend](figures/acc_age_index_surface.png)

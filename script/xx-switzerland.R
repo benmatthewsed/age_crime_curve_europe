@@ -196,8 +196,8 @@ switz_pop |>
          x2 = str_remove_all(x2, "([A-Za-z]+)"),
          x2 = str_remove_all(x2, " ")) |> 
   filter(x1 == "total") |> 
-  select(x1:x2020) |> 
-  pivot_longer(x1984:x2020,
+  select(x1:x2021) |> 
+  pivot_longer(x1984:x2021,
                names_to = "year",
                values_to = "pop") |> 
   rename(sex = x1,
@@ -231,16 +231,20 @@ res <-
     nlast = 20
   )
 
-
+switz_res <- 
 res$fitted |> 
   as.data.frame() |> 
   tibble::rownames_to_column() |> 
   as_tibble() |> 
   mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
-  pivot_longer(cols = `1984`:`2007`,
+  pivot_longer(cols = `1984`:`2021`,
                values_to = "n",
                names_to = "year") |> 
-  filter(age < 50) |> 
+  filter(age < 50)
+
+
+  
+switz_res |> 
   group_by(year) |> 
   ggplot(aes(x = year, y = age, fill = n)) +
   geom_tile() +
@@ -267,7 +271,7 @@ res$fitted |>
   tibble::rownames_to_column() |> 
   as_tibble() |> 
   mutate(age = as.numeric(stringr::str_sub(rowname, 2, 3))) |> 
-  pivot_longer(cols = `1984`:`2020`,
+  pivot_longer(cols = `1984`:`2021`,
                values_to = "n",
                names_to = "year") |> 
   filter(age < 50)
@@ -313,3 +317,49 @@ switz |>
   group_by(year) |> 
   summarise(conv = sum(as.numeric(conv))) |> 
   mutate(country = "Switzerland")
+
+
+
+
+# descriptives ------------------------------------------------------------
+
+switz_sum <- 
+switz_res |> 
+  unnest() |> 
+  mutate(year = as.numeric(year)) |> 
+  group_by(year) |> 
+  rename(convictions = n) |> 
+  summarise(mean_age = weighted.mean(age, convictions),
+            median_age = matrixStats::weightedMedian(age, convictions),
+            skew = moments::skewness(convictions),
+            kurtosis = moments::kurtosis(convictions)) |> 
+  pivot_longer(-year,
+               names_to = "measure",
+               values_to = "value") |>
+  mutate(country = "Switz")
+
+
+bind_rows(scot_sum, switz_sum) |> 
+  ggplot(aes(x = year, y = value, colour = country)) +
+  geom_line() + 
+  facet_wrap(~ measure, scales = "free")
+
+
+
+
+# figures -----------------------------------------------------------------
+
+switz_anim <- 
+switz_res |> 
+  mutate(year = as.numeric(year)) |> 
+  ggplot(aes(x = age, y = n, group = year)) +
+  geom_line() +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {as.integer(frame_time)}', x = 'Age', y = 'Convicton rate') +
+  transition_time(year)
+
+gganimate::animate(switz_anim,
+                   renderer = gifski_renderer())
+
+anim_save(filename = "switz_anim.gif",
+          path = here::here("outputs", "figures"))

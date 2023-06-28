@@ -372,7 +372,8 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="background-1" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li><p>Some evidence that the ‘youth crime drop’ differs in magnitude between countries <span class="citation" data-cites="matthews2018 sivertsson2021 farrell2015">(<a href="#/thank-you" role="doc-biblioref" onclick="">Matthews and Minton 2018</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Sivertsson, Nilsson, and Bäckman 2021</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrell, Laycock, and Tilley 2015</a>)</span>, and in general there are questions about how ‘international’ the International crime drop is <span class="citation" data-cites="kotzé2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kotzé 2019</a>)</span></p></li>
+<li><p>Some evidence that the ‘youth crime drop’ differs in magnitude between countries <span class="citation" data-cites="matthews2018 sivertsson2021 farrell2015">(<a href="#/thank-you" role="doc-biblioref" onclick="">Matthews and Minton 2018</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Sivertsson, Nilsson, and Bäckman 2021</a>; <a href="#/thank-you" role="doc-biblioref" onclick="">Farrell, Laycock, and Tilley 2015</a>)</span></p></li>
+<li><p>But in general there are questions about how exactly ‘international’ the International crime drop is <span class="citation" data-cites="kotzé2019">(<a href="#/thank-you" role="doc-biblioref" onclick="">Kotzé 2019</a>)</span></p></li>
 <li><p>But no (as far as I’m aware) systematic international comparison about how the demographics of crime have changed over the course of the crime drop</p></li>
 </ul>
 </section>
@@ -381,7 +382,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <ul>
 <li><p>Aim: compare changing age-crime curves across Northern Europe</p></li>
 <li><p>A lot of interesting register data analysis is in Northern Europe (because of data availability)</p></li>
-<li><p>Want to know how far we can generalize findings from these countries both to each other, and ideally to areas which don’t have this kind of data availability (although this is always an empirical question)</p></li>
+<li><p>In the future - possibly extend this analysis to include other countries to help understand how far we can generalize findings from these countries</p></li>
 </ul>
 </section>
 <section id="research-design-1" class="slide level2">
@@ -429,8 +430,8 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="analytical-plan" class="slide level2">
 <h2>Analytical plan</h2>
 <ul>
-<li>How (qualitatively) similar is the change in the ACC between countries?</li>
-<li>How much (qualitatively) does the ACC change within countries over time?</li>
+<li>How (qualitatively) similar is the change in the age-crime curve between countries?</li>
+<li>How much (qualitatively) does the age-crime curve change within countries over time?</li>
 </ul>
 </section>
 <section id="data-sources" class="slide level2">
@@ -471,7 +472,6 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="methods" class="slide level2">
 <h2>Methods</h2>
 <ul>
-<li><p>Convert aggregated counts of convictions and population estimates into single-year estimates of conviction rates</p></li>
 <li><p>Used <code>R</code> implementation of Penalized Composite Link Model (PCLM) using the package <a href="https://cran.r-project.org/web/packages/ungroup/index.html"><code>ungroup</code></a> <span class="citation" data-cites="pascariu2018">(<a href="#/thank-you" role="doc-biblioref" onclick="">Pascariu et al. 2018</a>)</span></p></li>
 <li><p>PCLM models convictions data and population data together to estimate a smooth surface of conviction rates</p></li>
 <li><p>Means that you probably shouldn’t look for disruptions in the time series (policy shocks or what have you)</p></li>
@@ -489,14 +489,6 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 </ul></li>
 </ul>
 </section>
-<section id="methods-2" class="slide level2">
-<h2>Methods</h2>
-<ul>
-<li>Country-standardized is good for understanding the crime drop (between country comparisons)</li>
-<li>Country-year standardized is good for understanding the age-crime curve (within country comparisons)</li>
-<li>Focusing on age and year not age and cohort</li>
-</ul>
-</section>
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
 <ul>
@@ -506,10 +498,6 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <li>Although visual analysis tends to give the same results as formal modelling <span class="citation" data-cites="jones2023">(<a href="#/thank-you" role="doc-biblioref" onclick="">Jones, Minton, and Bell 2023</a>)</span></li>
 </ul>
 </section>
-<section id="the-lexis-surface" class="slide level2">
-<h2>The lexis surface</h2>
-
-<img data-src="resources/minton_2020_lexis.png" class="r-stretch quarto-figure-center"><p class="caption">From Minton (2020)</p></section>
 <section id="results" class="slide level2">
 <h2>Results</h2>
 
@@ -538,10 +526,6 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <h2>Comparing countries 6</h2>
 
 <img data-src="figures/acc_age_index_facet.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
-<section id="comparing-countries-7" class="slide level2">
-<h2>Comparing countries 7</h2>
-
-<img data-src="figures/acc_age_index_surface.png" class="r-stretch quarto-figure-center"><p class="caption">Change in age-indexed trend</p></section>
 <section id="summary-statistics" class="slide level2">
 <h2>Summary statistics</h2>
 
@@ -558,7 +542,7 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <ul>
 <li>But we don’t see the same fall in convictions for older people across countries - only really see the slight increases in convictions 30s-40s in Scotland</li>
 <li>Increases in convictions for people around age 50 seen in Norway, Finland and Denmark are similar to results from US arrest data as reported by <span class="citation" data-cites="farrell2015">Farrell, Laycock, and Tilley (<a href="#/thank-you" role="doc-biblioref" onclick="">2015</a>)</span></li>
-<li>So maybe perhaps this does fit better with a youth-focused explanation for the crime drop?</li>
+<li>So perhaps this does fit better with a youth-focused explanation for the crime drop?</li>
 <li>Scotland seems like the odd-one-out here?</li>
 </ul>
 </section>
@@ -573,9 +557,11 @@ Dr.&nbsp;Ben Matthews | University of Stirling
 <section id="discussion-3" class="slide level2">
 <h2>Discussion</h2>
 <ul>
-<li>There are two directions this research could go in:</li>
+<li>There are two directions this research could go in:
+<ul>
 <li>This initial analysis raises lots of questions about… crime types, other demographics (gender, ethnicity, income… etc) that could be answered by more bespoke data</li>
 <li>Having done this analysis for (some of) Northern Europe, I think maybe an even more maximalist approach would be preferable - extending this comparison to anywhere that publishes data on age and conviction? (Though through some non-systematic Googling, there was data available for Switzerland, New Zealand and South Korea…)</li>
+</ul></li>
 </ul>
 </section>
 <section id="thank-you" class="slide level2 smaller scrollable" data-background-image="resources/background.png">
@@ -622,7 +608,7 @@ Sivertsson, Fredrik, Anders Nilsson, and Olof Bäckman. 2021. <span>“Participa
 <section id="bonus-content" class="slide level2" data-background-image="resources/background.png">
 <h2>Bonus content</h2>
 </section>
-<section id="methods-3" class="slide level2">
+<section id="methods-2" class="slide level2">
 <h2>Methods</h2>
 
 <img data-src="resources/rizzi-2015-figure_one.png" style="width:80.0%" alt="Figure 1. Statistical model for grouped data. The distribution of interest _γ_ is defined on a fine scale. Grouping composes several values of _γ_ to the values of _μ_, which are the expected counts for the grouped distribution. The observed data _y_ are realizations of Poisson random variables with expected values _μ_. The latent distribution _γ_ is to be estimated from the grouped counts _y_, which can be achieved by assuming that _γ_ is smooth." class="r-stretch quarto-figure-center"><p class="caption"><span class="citation" data-cites="rizzi2015">(<a href="#/thank-you" role="doc-biblioref" onclick="">Rizzi, Gampe, and Eilers 2015</a>)</span>, Figure 1: Statistical model for grouped data</p></section>
@@ -655,12 +641,20 @@ Sivertsson, Fredrik, Anders Nilsson, and Olof Bäckman. 2021. <span>“Participa
 <li>Methods do exist but seem opaque to me - so I haven’t bothered (yet)</li>
 </ul>
 </section>
+<section id="the-lexis-surface" class="slide level2">
+<h2>The lexis surface</h2>
+
+<img data-src="resources/minton_2020_lexis.png" class="r-stretch quarto-figure-center"><p class="caption">From Minton (2020)</p></section>
 <section id="cohort-results" class="slide level2">
 <h2>Cohort results</h2>
+
+<img data-src="figures/cohort_anim.gif" class="r-stretch quarto-figure-center"><p class="caption">Change in cohort curves</p></section>
+<section id="comparing-countries-7" class="slide level2">
+<h2>Comparing countries 7</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/cohort_anim.gif"></p>
-<p></p><figcaption>Change in cohort curves</figcaption><p></p>
+<p><img data-src="figures/acc_age_index_surface.png"></p>
+<p></p><figcaption>Change in age-indexed trend</figcaption><p></p>
 </figure>
 </div>
 
